@@ -1,11 +1,12 @@
 cortex
 ======
 
-Virtual scratch pad and brainstorming tool, with collaboration.
+*Virtual scratch pad and brainstorming tool, with collaboration.*
 
 Sometimes you **just** want to type up some really quick ideas.
 
-You **don't** want to have to:
+You **don't** want to do any of the following:
+----------------------------------------------
 
  - login
  - sign up
