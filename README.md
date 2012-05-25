@@ -1,4 +1,4 @@
 cortex
 ======
 
-Abstract thought zone.
+Virtual scratch pad, with collaboration.
