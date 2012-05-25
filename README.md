@@ -18,4 +18,8 @@ You **don't** want to have to:
  
 ...or really anything else. Sometimes **all** you want is a virtual scratch pad that anyone can add to. Nothing more.
 
-That's what **cortex** gives you.
+That's what **cortex** is.
+--------------------------
+
+That's all it is.
+Thankfully, that's all it's every going to **try** to be.
