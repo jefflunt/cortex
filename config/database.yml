@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  host: localhost
+  pool: 10
+  database: cortex
+  username: cortex
+  password: localdevpassword
+
+test: &test
+  adapter: postgresql
+  host: localhost
+  pool: 10
+  database: cortex
+  username: cortex
+  password: localdevpassword
+
+cucumber:
+  <<: *test
+
+production:
+  adapter: postgresql
+  host: localhost
+  pool: 10
+  database: cortex
+  username: cortex
+  password: notactuallytheproductionpassword
