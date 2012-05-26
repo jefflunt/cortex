@@ -1,5 +1,13 @@
 $color-light-grey: #ebebeb
 $color-dark-grey:  #1b1b1b
+$color-medium-grey: #777
+
+$color-links: #FF9729
+$color-links-hover: #E3CF57
+
+$size-big:    26px
+$size-medium: 14px
+$size-small:  12px
 
 body
   color: $color-light-grey
@@ -10,19 +18,10 @@ body
   background-repeat: no-repeat
   
 a
-  color: #FF9729
+  color: $color-links
   text-decoration: none
   &:hover
-    color: E3CF57
-
-.font-big
-  font-size: 40px
-
-.font-medium
-  font-size: 26px
-
-.font-small
-  font-size: 14px
+    color: $color-links-hover
 
 #nav-bar
   border-bottom: 1px solid
@@ -38,3 +37,26 @@ a
   position: absolute
   left: 20px
   top: 60px
+  height: 300px
+  
+.thought
+  float: left
+  position: relative
+  font-size: $size-medium
+  word-wrap: break-word
+  border: 1px solid #424242
+  border-radius: 5px
+  margin-top: 5px
+  margin-right: 5px
+  padding: 5px 5px 23px 5px
+  
+  width: 215px
+  height: 60px
+  
+  .thought-time
+    color: $color-medium-grey
+    position: absolute
+    font-size: $size-small
+    bottom: 3px
+    left: 5px
+    

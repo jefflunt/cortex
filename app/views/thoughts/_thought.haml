@@ -1,3 +1,4 @@
 .thought
-  =thought.text
-  =time_ago_in_words(thought.updated_at)
+  =truncate thought.text, :length => 100
+  .thought-time
+    ="#{time_ago_in_words(thought.updated_at)} ago"
