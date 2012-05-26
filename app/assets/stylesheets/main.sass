@@ -1,6 +1,7 @@
 $color-light-grey: #ebebeb
 $color-dark-grey:  #1b1b1b
 $color-medium-grey: #777
+$color-dim-grey: #222
 
 $color-links: #FF9729
 $color-links-hover: #E3CF57
@@ -8,6 +9,13 @@ $color-links-hover: #E3CF57
 $size-big:    26px
 $size-medium: 14px
 $size-small:  12px
+
+
+@font-face
+  font-family: PTMono
+  src: url(/assets/PTM55FT.ttf)
+
+$font-main: PTMono, sans-serif
 
 .size-big
   font-size: $size-big
@@ -21,7 +29,7 @@ pre
 
 body
   color: $color-light-grey
-  font-family: 'PT Mono', sans-serif
+  font-family: $font-main
   background-color: $color-dark-grey
   background-image: url('brain-dark.jpg')
   background-position: top center
@@ -84,11 +92,10 @@ a
   @extend .thought-box
   height: 257px
 .keep
-  opacity: 1.0
+  background: rgba(128, 255, 128, 0.1)
 .neutral
-  opacity: 1.0
 .scratch
-  opacity: 0.1
+  background: rgba(130, 32, 32, 0.2)
   
 input
   color: $color-light-grey
@@ -96,6 +103,8 @@ input
   border: none
 textarea
   @extend input
+  background-color: $color-dim-grey
+  font-family: $font-main
 .title-entry
   font-size: $size-big
   width: 60%

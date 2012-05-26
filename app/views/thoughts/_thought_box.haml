@@ -1,8 +1,8 @@
-.thought-box
-  .thought{class: keep_class(thought)}
+.thought-box{class: keep_class(thought)}
+  .thought
     =simple_format(auto_link(truncate(thought.text, :length => 100)))
   .thought-time
-    ="#{time_ago_in_words(thought.updated_at)} ago"
+    ="#{time_ago_in_words(thought.created_at)} ago"
   .thought-keep
     -if thought.keep?
       =link_to(image_tag('smile-bright-icon.png'), thought_path(thought,  :keep => "neutral"), {:method => :put, :remote => true})
