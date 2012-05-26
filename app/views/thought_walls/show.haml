@@ -1,5 +1,6 @@
 Collaborate with others. Give them this link:
 =link_to request.url
 =render :partial => "form", :locals => {:thought_wall => @thought_wall}
-=render :partial => "thoughts/form", :locals => {:thought_wall => @thought_wall}
+#new-thought.new-thought
+  =render :partial => "thoughts/form", :locals => {:thought_wall => @thought_wall}
 =render :partial => "thoughts/thought_list", :locals => {:thoughts => @thought_wall.thoughts}
