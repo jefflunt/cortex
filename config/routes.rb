@@ -3,4 +3,6 @@ Cortex::Application.routes.draw do
   
   resources :thought_walls, :only => [:index, :create, :update, :show]
   resources :thoughts, :only => [:create, :update]
+  
+  match "/:id" => "thought_walls#show"
 end

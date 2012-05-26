@@ -13,7 +13,7 @@ class ThoughtWallsController < ApplicationController
     new_thought_wall.title = Date.today.strftime('%a, %d %b %Y')
     new_thought_wall.save
     
-    redirect_to "/thought_walls/#{new_thought_wall.code}"
+    redirect_to "/#{new_thought_wall.code}"
   end
   
   def update
