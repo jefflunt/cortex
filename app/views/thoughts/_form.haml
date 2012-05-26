@@ -1,4 +1,4 @@
 =form_for Thought.new, :remote => true do |f|
   =f.hidden_field :thought_wall_id, :value => thought_wall.id
-  =f.text_area :text, {:rows => 11, :cols => 27}
+  =f.text_area :text, {:rows => 12, :cols => 27}
   =f.submit "Add thought"
