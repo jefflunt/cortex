@@ -15,5 +15,4 @@ end
 
 group :development do
   # gem 'ruby-debug'
-  # gem 'linecache19'
 end

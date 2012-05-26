@@ -5,7 +5,15 @@ class ThoughtsController < ApplicationController
     @thought.thought_wall_id = params[:thought][:thought_wall_id]
     @thought.text = params[:thought][:text]
     
+    Rails.logger.info @thought.valid?
+    Rails.logger.info @thought.errors.inspect
+
     @thought.save!
+    # put a conditional here - if the save
+    # fails, then it's probably because the
+    # thought text is duplicate, which should
+    # respond differently with the duplicate
+    # thought highlighted
   end
   
   def update
