@@ -5,6 +5,7 @@ gem 'json'
 gem 'jquery-rails'
 gem 'pg'
 gem 'haml'
+gem 'rails_autolink'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
