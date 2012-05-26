@@ -13,5 +13,6 @@ group :assets do
 end
 
 group :development do
-  gem 'ruby-debug'
+  # gem 'ruby-debug'
+  # gem 'linecache19'
 end
