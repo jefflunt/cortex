@@ -8,4 +8,7 @@ class ThoughtsController < ApplicationController
     @thought.save!
   end
   
+  def update
+  end
+  
 end

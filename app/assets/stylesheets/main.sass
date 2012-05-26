@@ -55,27 +55,34 @@ a
   width: 30%
   right: 0px
 
-.thought
+.thought-box
+  width: 215px
+  height: 125px
   float: left
   position: relative
-  font-size: $size-medium
-  word-wrap: break-word
   border: 1px solid #424242
   border-radius: 5px
   margin-top: 5px
   margin-right: 5px
+.thought
+  border: none
+  margin-top: -10px
+  font-size: $size-medium
+  word-wrap: break-word
   padding: 5px 5px 23px 5px
-  width: 215px
-  height: 70px  
-  .thought-time
-    color: $color-medium-grey
-    position: absolute
-    font-size: $size-small
-    bottom: 3px
-    left: 5px
-.new-thought
-  @extend .thought
-  height: 175px
+.thought-keep
+  position: absolute
+  bottom: 3px
+  right: 5px
+.thought-time
+  color: $color-medium-grey
+  position: absolute
+  font-size: $size-small
+  bottom: 3px
+  left: 5px
+#thought-new
+  @extend .thought-box
+  height: 257px
   
 input
   color: $color-light-grey

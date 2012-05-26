@@ -1,5 +1,5 @@
 =render :partial => "collaboration_link"
 =render :partial => "form", :locals => {:thought_wall => @thought_wall}
-#new-thought.new-thought
+#thought-new
   =render :partial => "thoughts/form", :locals => {:thought_wall => @thought_wall}
 =render :partial => "thoughts/thought_list", :locals => {:thoughts => @thought_wall.thoughts}

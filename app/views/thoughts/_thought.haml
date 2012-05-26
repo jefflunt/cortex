@@ -1,4 +1,17 @@
-.thought
-  =simple_format(auto_link(truncate(thought.text, :length => 100)))
+.thought-box
+  .thought
+    =simple_format(auto_link(truncate(thought.text, :length => 100)))
   .thought-time
     ="#{time_ago_in_words(thought.updated_at)} ago"
+  .thought-keep
+    -if thought.keep?
+      =link_to(image_tag('smile-bright-icon.png'), thought_path(thought), {:method => :put, :remote => true}, {:keep => "neutral"})
+      =link_to(image_tag('frown-dim-icon.png'), thought_path(thought), {:method => :put, :remote => true}, {:keep => "scratch"})
+    -elsif thought.scratch?
+      =link_to(image_tag('smile-dim-icon.png'), thought_path(thought), {:method => :put, :remote => true}, {:keep => "keep"})
+      =link_to(image_tag('frown-bright-icon.png'), thought_path(thought), {:method => :put, :remote => true}, {:keep => "neutral"})
+    -elsif thought.neutral?
+      =link_to(image_tag('smile-dim-icon.png'), thought_path(thought), {:method => :put, :remote => true}, {:keep => "keep"})
+      =link_to(image_tag('frown-dim-icon.png'), thought_path(thought), {:method => :put, :remote => true}, {:keep => "scratch"})
+
+      
