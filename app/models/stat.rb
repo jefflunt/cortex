@@ -1,6 +1,7 @@
 class Stat < ActiveRecord::Base
   validates :group, :presence => true
   validates :name,  :presence => true
+  validates :name,  :uniqueness => { :scope => :group }
   validates :value, :presence => true
   
   def self.increment(group, name)
