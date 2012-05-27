@@ -14,6 +14,8 @@ class ThoughtsController < ApplicationController
     # thought text is duplicate, which should
     # respond differently with the duplicate
     # thought highlighted
+    
+    Stat.increment("totals", "thoughts")
   end
   
   def update

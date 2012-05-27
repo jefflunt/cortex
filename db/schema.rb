@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526171237) do
+ActiveRecord::Schema.define(:version => 20120527135048) do
+
+  create_table "stats", :force => true do |t|
+    t.string  "group"
+    t.string  "name"
+    t.integer "value", :default => 0
+  end
+
+  add_index "stats", ["group"], :name => "index_stats_on_group"
 
   create_table "thought_walls", :force => true do |t|
     t.string   "code"
