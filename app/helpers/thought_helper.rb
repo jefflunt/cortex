@@ -1,13 +1,16 @@
 module ThoughtHelper
-  def keep_class(thought)
+  def custom_styles(thought, is_new_thought)
+    combined_classes = ""
+    combined_classes += "new-thought-box " if is_new_thought
+    
     if thought.nil?
-      return "neutral"
+      combined_classes += "neutral"
     elsif thought.keep?
-      return "keep"
+      combined_classes += "keep"
     elsif thought.neutral?
-      return "neutral"
+      combined_classes += "neutral"
     elsif thought.scratch?
-      return "scratch"
+      combined_classes += "scratch"
     end
   end
 end
