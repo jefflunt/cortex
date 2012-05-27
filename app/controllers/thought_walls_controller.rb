@@ -1,10 +1,6 @@
 class ThoughtWallsController < ApplicationController
   
   def index
-    thought_count_stat      = Stat.find_by_group_and_name("totals", "thoughts")
-    thought_wall_count_stat = Stat.find_by_group_and_name("totals", "thought_walls")
-    @thought_count      = thought_count_stat.nil?      ? 0 : thought_count_stat.value
-    @thought_wall_count = thought_wall_count_stat.nil? ? 0 : thought_wall_count_stat.value
   end
   
   def show

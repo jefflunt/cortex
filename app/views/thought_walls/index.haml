@@ -1,4 +1,4 @@
-%p.size-big="#{@thought_count} thoughts captured in #{@thought_wall_count} cortices"
+%p.size-big="#{Stat.get_value("totals", "thoughts")} thoughts captured in #{Stat.get_value("totals", "thought_walls")} cortices"
 %span.size-big
   CORTEX: a virtual scratch pad and brainstorming tool, with collaboration.
 %p.size-medium
