@@ -1,3 +1,5 @@
+-content_for :title, "cortex - #{@thought_wall.code}"
+
 =render :partial => "collaboration_link"
 #thought-wall-form
   =render :partial => "form", :locals => {:thought_wall => @thought_wall}

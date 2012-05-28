@@ -1,0 +1,15 @@
+-is_new_thought ||= nil
+.thought-box-overlay-background
+  .thought-box-overlay{class: custom_styles(thought, is_new_thought), id: "thought-box-#{thought.id}"}
+    .thought
+      =simple_format(auto_link(thought.text))
+    .thought-keep
+      -if thought.keep?
+        =link_to(image_tag('smile-bright-icon.png'), thought_path(thought,  :keep => "neutral"), {:method => :put, :remote => true})
+        =link_to(image_tag('frown-dim-icon.png'), thought_path(thought,     :keep => "scratch"), {:method => :put, :remote => true})
+      -elsif thought.scratch?
+        =link_to(image_tag('smile-dim-icon.png'), thought_path(thought,     :keep => "keep"),    {:method => :put, :remote => true})
+        =link_to(image_tag('frown-bright-icon.png'), thought_path(thought,  :keep => "neutral"), {:method => :put, :remote => true})
+      -elsif thought.neutral?
+        =link_to(image_tag('smile-dim-icon.png'), thought_path(thought, :keep => "keep"),    {:method => :put, :remote => true})
+        =link_to(image_tag('frown-dim-icon.png'), thought_path(thought, :keep => "scratch"), {:method => :put, :remote => true})

@@ -13,8 +13,6 @@ class ThoughtWallsController < ApplicationController
     new_thought_wall.title = Date.today.strftime('%a, %d %b %Y')
     new_thought_wall.save
     
-    Stat.increment("totals", "thought_walls")
-    
     redirect_to "/#{new_thought_wall.code}"
   end
   

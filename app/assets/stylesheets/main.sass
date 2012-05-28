@@ -27,6 +27,7 @@ pre
   font-size: $size-small
 
 body
+  position: relative
   color: $color-light-grey
   font-family: $font-main
   background-color: $color-dark-grey
@@ -49,7 +50,7 @@ a
   #nav-links
     position: absolute
     right: 20px
-  
+
 #content
   position: absolute
   left: 20px
@@ -57,10 +58,28 @@ a
   width: 98%
   height: 300px
 
+#overlay
+  display: none
+  opacity: 0.0
+  position: fixed
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100%
+
 .collaboration-div
   position: absolute
   width: 30%
   right: 0px
+.thought-box-overlay-background
+  background-color: $color-dark-grey
+  width: 100%
+  height: 100%
+.thought-box-overlay
+  background-color: $color-dark-grey
+  width: 100%
+  height: 100%
+  overflow: auto
 .thought-box
   width: 215px
   height: 125px
@@ -80,12 +99,6 @@ a
   position: absolute
   bottom: 3px
   right: 5px
-.thought-time
-  color: $color-medium-grey
-  position: absolute
-  font-size: $size-small
-  bottom: 3px
-  left: 5px
 #thought-wall-form
   width: 70%
   position: relative
@@ -97,14 +110,15 @@ a
 #thought-form
   @extend .thought-box
   height: 257px
+.new-thought-box
+  opacity: 0.0
+  width: 0px
+
 .keep
   background: rgba(128, 255, 128, 0.1)
 .neutral
 .scratch
   background: rgba(130, 32, 32, 0.2)
-.new-thought-box
-  opacity: 0.0
-  width: 0px
   
 input
   color: $color-light-grey

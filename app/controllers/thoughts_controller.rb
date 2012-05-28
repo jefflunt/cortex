@@ -1,5 +1,9 @@
 class ThoughtsController < ApplicationController
   
+  def show
+    @thought = Thought.find(params[:id])
+  end
+  
   def create
     @thought = Thought.new
     @thought.thought_wall_id = params[:thought][:thought_wall_id]
