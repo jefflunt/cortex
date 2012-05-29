@@ -1,5 +1,5 @@
 module ThoughtHelper
-  def custom_styles(thought, is_new_thought)
+  def custom_styles(thought, is_new_thought = false)
     combined_classes = ""
     combined_classes += "new-thought-box " if is_new_thought
     

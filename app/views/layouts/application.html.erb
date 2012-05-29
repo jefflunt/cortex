@@ -9,11 +9,17 @@
 </head>
 <body>
 
-<%= render :partial => 'navigation/nav_bar' %>
-<div id="content">
-  <%= yield %>
-</div>
+  <%= render :partial => 'navigation/nav_bar' %>
+  <div id="content">
+    <%= yield %>
+  </div>
 
-<div id="overlay">I'm empty!</div>
+  <div id="overlay">
+    <div id="overlay-close">
+      close
+    </div>
+    <div id="overlay-content">
+    </div>
+  </div>
 </body>
 </html>
