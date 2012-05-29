@@ -1,6 +1,12 @@
 $ ->
+  maxThoughtChars = 65500
+  thoughtTextarea = $('#thought_text')
+  
   thoughtText = $('#thought_text')
   thoughtText.focus()
+  
+  thoughtTextarea.keyup ->
+    $('#thought_new_remaining_characters').html('left: ' + (maxThoughtChars - thoughtTextarea.val().length))
   
   $("#thought_wall_title").keyup ->
     $("#update_thought_wall_spinner").show()
