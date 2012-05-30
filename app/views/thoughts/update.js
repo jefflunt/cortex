@@ -1,3 +1,5 @@
+$('#next_refresh').html('5000');
+
 overlay         = $('#overlay');
 overlay_content = $('#overlay-content');
 if (overlay.css('display') != 'none') {

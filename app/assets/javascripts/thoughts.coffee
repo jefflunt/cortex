@@ -1,4 +1,11 @@
 $ ->
+  delay = (->
+    timer = 0
+    (callback, ms) ->
+      clearTimeout timer
+      timer = setTimeout(callback, ms)
+  )()
+
   maxThoughtChars = 65500
   $('#thought_text').focus()
   
@@ -13,10 +20,3 @@ $ ->
       $("#update_thought_wall_spinner").hide()
     ), 750
     false
-
-  delay = (->
-    timer = 0
-    (callback, ms) ->
-      clearTimeout timer
-      timer = setTimeout(callback, ms)
-  )()
