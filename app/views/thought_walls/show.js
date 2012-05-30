@@ -21,12 +21,6 @@ delay = (function() {
   };
 })();
 
-<% if @thoughts.count > 0 %>
-  nextRefreshDelay = 5000;
-<% else %>
-  nextRefreshDelay = 10000;
-<% end %>
-
 nextRefreshDelay = $('#next_refresh').html()
 delay((function() {
   renderTimestamp = $('#render_timestamp').html();
