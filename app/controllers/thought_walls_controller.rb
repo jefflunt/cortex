@@ -14,6 +14,7 @@ class ThoughtWallsController < ApplicationController
       @next_refresh = get_next_refresh(params[:next_refresh].to_i, @thoughts.count)
     else
       @thought_wall = ThoughtWall.find_by_code(params[:id], :include => :thoughts)
+      @next_refresh = 5000
     end
     
     respond_to do |format|

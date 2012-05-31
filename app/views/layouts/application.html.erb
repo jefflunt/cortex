@@ -6,10 +6,13 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "jquery" %>
   <%= javascript_include_tag "jquery_ujs" %>
+  <%= javascript_include_tag "utilities" %>
+  <%= javascript_include_tag "cortex_core" %>
   <%= javascript_include_tag "overlay" %>
   <%= javascript_include_tag "refresh_thought_wall" %>
   <%= javascript_include_tag "thoughts" %>
   <%= csrf_meta_tags %>
+  <%= yield :head %>
 </head>
 <body>
   <div id="render_timestamp"  class="hidden"><%= @render_timestamp  if defined?(@render_timestamp) %></div>
