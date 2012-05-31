@@ -3,6 +3,5 @@
 =render :partial => "collaboration_link"
 #thought-wall-form
   =render :partial => "form", :locals => {:thought_wall => @thought_wall}
-#thought-form
   =render :partial => "thoughts/form", :locals => {:thought_wall => @thought_wall}
 =render :partial => "thoughts/thought_list", :locals => {:thoughts => @thought_wall.thoughts}

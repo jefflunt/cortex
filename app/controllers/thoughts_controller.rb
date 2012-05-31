@@ -5,6 +5,7 @@ class ThoughtsController < ApplicationController
   end
   
   def create
+    # In the future, do a "find_or_create_by" method here to handle duplicates
     @thought = Thought.new(params[:thought])
 
     Rails.logger.info "!!!!!!!!!!!"
@@ -12,11 +13,6 @@ class ThoughtsController < ApplicationController
     Rails.logger.info "!!!!!!!!!!!"
     
     @thought.save!
-    # put a conditional here - if the save
-    # fails, then it's probably because the
-    # thought text is duplicate, which should
-    # respond differently with the duplicate
-    # thought highlighted
     
     Stat.increment("totals", "thoughts")
   end

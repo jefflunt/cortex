@@ -9,7 +9,7 @@ class ThoughtWallsController < ApplicationController
     if params[:since]
       last_render_at = Time.at(params[:since].to_i).utc
       @thought_wall = ThoughtWall.find_by_code(params[:id])
-      @thoughts = Thought.where(["thought_wall_id = ? AND updated_at >= ?", @thought_wall.id, last_render_at]).order("created_at DESC")
+      @thoughts = Thought.where(["thought_wall_id = ? AND updated_at >= ?", @thought_wall.id, last_render_at]).order("id DESC")
       
       @next_refresh = get_next_refresh(params[:next_refresh].to_i, @thoughts.count)
     else

@@ -1,5 +1,5 @@
 class ThoughtWall < ActiveRecord::Base
-  has_many :thoughts, :dependent => :destroy, :order => 'created_at DESC'
+  has_many :thoughts, :dependent => :destroy, :order => 'id DESC'
   
   validates :code,  :uniqueness => true
   validates :code,  :presence => true

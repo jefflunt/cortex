@@ -11,6 +11,5 @@
       =link_to(image_tag('smile-dim-icon.png'), thought_path(thought,     :keep => "keep"),    {:method => :put, :remote => true})
       =link_to(image_tag('frown-bright-icon.png'), thought_path(thought,  :keep => "neutral"), {:method => :put, :remote => true})
     -elsif thought.neutral?
-      =link_to(image_tag('smile-dim-icon.png'), thought_path(thought, :keep => "keep"),    {:method => :put, :remote => true})
-      =link_to(image_tag('frown-dim-icon.png'), thought_path(thought, :keep => "scratch"), {:method => :put, :remote => true})
-  
+      =link_to(image_tag('smile-dim-icon.png'), thought_path(thought,     :keep => "keep"),    {:method => :put, :remote => true})
+      =link_to(image_tag('frown-dim-icon.png'), thought_path(thought,     :keep => "scratch"), {:method => :put, :remote => true})
