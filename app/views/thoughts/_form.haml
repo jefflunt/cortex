@@ -1,6 +1,6 @@
 =form_for Thought.new, :remote => true do |f|
   =f.hidden_field :thought_wall_id, :value => thought_wall.id
   =f.text_area :text
-  #thought_new_remaining_characters.size-small
+  #thought-new-remaining-characters.size-small
     ="remaining: 65500"
   =f.submit "Add thought", class: "thought-add-button"

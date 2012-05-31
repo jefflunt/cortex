@@ -5,13 +5,12 @@ class ThoughtsController < ApplicationController
   end
   
   def create
-    @thought = Thought.new
-    @thought.thought_wall_id = params[:thought][:thought_wall_id]
-    @thought.text = params[:thought][:text]
-    
-    Rails.logger.info @thought.valid?
-    Rails.logger.info @thought.errors.inspect
+    @thought = Thought.new(params[:thought])
 
+    Rails.logger.info "!!!!!!!!!!!"
+    Rails.logger.info " -> POST"
+    Rails.logger.info "!!!!!!!!!!!"
+    
     @thought.save!
     # put a conditional here - if the save
     # fails, then it's probably because the
