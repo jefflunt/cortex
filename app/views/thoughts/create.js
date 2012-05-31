@@ -7,3 +7,4 @@ $('#thought-list').prepend("<%= escape_javascript(render(:partial => 'thoughts/t
 $('#thought-box-<%= escape_javascript(@thought.id.to_s) %>').animate({width: 215}, 500, function() { $(this).animate({opacity: 1.0}, 175, function() { $(this).removeClass('new-thought-box'); }) });
 
 focusOnNewThoughtText();
+delayAction(refreshPageNow, getCurrThoughtWallRefreshDelay());
