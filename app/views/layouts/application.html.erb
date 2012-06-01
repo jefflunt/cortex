@@ -4,13 +4,7 @@
   <title><%= yield :title %></title>
   <%= favicon_link_tag('/favicon.ico') %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "jquery-1.7.1" %>
-  <%= javascript_include_tag "jquery_ujs" %>
-  <%= javascript_include_tag "utilities" %>
-  <%= javascript_include_tag "cortex_core" %>
-  <%= javascript_include_tag "overlay" %>
-  <%= javascript_include_tag "refresh_thought_wall" %>
-  <%= javascript_include_tag "thoughts" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
