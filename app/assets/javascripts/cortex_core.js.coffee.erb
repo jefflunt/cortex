@@ -13,42 +13,34 @@ $ ->
 
   window.thoughtListDiv = $("#thought-list")
 
-  window.focusOnNewThoughtText = ( ->
+  window.focusOnNewThoughtText = ->
     newThoughtTextarea.focus()
-  )
 
-  window.getOverlayIsVisible = ( ->
+  window.getOverlayIsVisible = ->
     (overlayDiv.css('display') != 'none')
-  )
 
-  window.getCurrThoughtWallRefreshDelay = ( ->
+  window.getCurrThoughtWallRefreshDelay = ->
     delayFromDOM = parseInt(nextThoughtWallRefreshDiv.html())
     console.log delayFromDOM
     if (isNaN(delayFromDOM) || delayFromDOM < minThoughtWallRefreshDelay)
       minThoughtWallRefreshDelay
     else
       delayFromDOM
-  )
 
-  window.getRenderTimestamp = ( ->
+  window.getRenderTimestamp = ->
     renderTimestampDiv.html()
-  )
 
-  window.setRenderTimestamp = ((renderTimestamp) ->
+  window.setRenderTimestamp = (renderTimestamp) ->
     renderTimestampDiv.html(renderTimestamp)
-  )
 
-  window.setNextThoughtWallRefreshDelay = ((nextRefreshDelay) ->
+  window.setNextThoughtWallRefreshDelay = (nextRefreshDelay) ->
     nextThoughtWallRefreshDiv.html(nextRefreshDelay)
-  )
 
-  window.clearNewThoughtForm = ( ->
+  window.clearNewThoughtForm = ->
     newThoughtTextarea.val('')
     newThoughtTextRemainingCountDiv.html('remaining: ' + (maxThoughtLength - newThoughtTextarea.val().length))
-  )
 
-  window.refreshPageNow = ( ->
+  window.refreshPageNow = ->
     $.get document.URL+".js?since="+getRenderTimestamp()+"&next_refresh="+getCurrThoughtWallRefreshDelay()
     , (data) ->
       console.log data
-  )

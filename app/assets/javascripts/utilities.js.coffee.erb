@@ -4,3 +4,9 @@ window.delayAction = (->
     clearTimeout timer
     timer = setTimeout(callback, ms)
 )()
+
+window.supportsHtml5Storage = ->
+  try
+    return "localStorage" of window and window["localStorage"] isnt null
+  catch e
+    return false
