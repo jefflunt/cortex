@@ -21,7 +21,6 @@ $ ->
 
   window.getCurrThoughtWallRefreshDelay = ->
     delayFromDOM = parseInt(nextThoughtWallRefreshDiv.html())
-    console.log delayFromDOM
     if (isNaN(delayFromDOM) || delayFromDOM < minThoughtWallRefreshDelay)
       minThoughtWallRefreshDelay
     else
@@ -42,5 +41,3 @@ $ ->
 
   window.refreshPageNow = ->
     $.get document.URL+".js?since="+getRenderTimestamp()+"&next_refresh="+getCurrThoughtWallRefreshDelay()
-    , (data) ->
-      console.log data
