@@ -6,4 +6,4 @@ if (getOverlayIsVisible()) {
 
 $('#thought-box-<%= escape_javascript(@thought.id.to_s) %>').replaceWith("<%= escape_javascript(render :partial => 'thoughts/thought_box',  :locals => {:thought => @thought}) %>");
 
-delayAction(refreshPageNow, getCurrThoughtWallRefreshDelay());
+delayAction(ajaxRefreshPage, getCurrThoughtWallRefreshDelay());

@@ -1,5 +1,7 @@
 setRenderTimestamp(<%= @render_timestamp %>)
 setNextThoughtWallRefreshDelay(<%= @next_refresh %>);
+updatePageTitle('<%= escape_javascript(@thought_wall.title) %>');
+thoughtWallTitleInput.val('<%= escape_javascript(@thought_wall.title) %>');
 
 <% @thoughts.each do |thought| %>
   thoughtBoxIsNewToClient = ($("#thought-box-<%= thought.id.to_s %>").length == 0);
@@ -11,5 +13,5 @@ setNextThoughtWallRefreshDelay(<%= @next_refresh %>);
   }
 <% end %>
 
-delayAction(refreshPageNow, getCurrThoughtWallRefreshDelay());
+delayAction(ajaxRefreshPage, getCurrThoughtWallRefreshDelay());
 false;

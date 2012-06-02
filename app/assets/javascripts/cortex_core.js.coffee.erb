@@ -1,6 +1,7 @@
 $ ->
   window.minThoughtWallRefreshDelay = 5000
   window.maxThoughtLength = 65500
+  window.thoughtWallTitleInput = $("#thought_wall_title")
 
   window.overlayDiv = $('#overlay')
   window.overlayContentDiv = $('#overlay-content')
@@ -42,5 +43,5 @@ $ ->
     newThoughtTextarea.val('')
     newThoughtTextRemainingCountDiv.html('remaining: ' + (maxThoughtLength - newThoughtTextarea.val().length))
 
-  window.refreshPageNow = ->
+  window.ajaxRefreshPage = ->
     $.get document.URL+".js?since="+getRenderTimestamp()+"&next_refresh="+getCurrThoughtWallRefreshDelay()

@@ -7,7 +7,7 @@ $ ->
   $("body").delegate "#thought_text", "keyup", (event) ->
       $('#thought-new-remaining-characters').html('remaining: ' + (maxThoughtLength - $('#thought_text').val().length))
         
-  $("#thought_wall_title").keyup ->
+  thoughtWallTitleInput.keyup ->
     $("#update_thought_wall_spinner").show()
     $("#collection-name").html($(this).val())
     delayAction (->
