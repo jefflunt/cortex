@@ -41,6 +41,9 @@ $ ->
         addNewRecentEntry(code, title)
       
       capRecentListAt(10)
+      
+  window.updateRecentCodeTitle = (code, title) ->
+    localStorage[code+".title"] = title
 
   makeSureRecentStorageIsInitialized = ->
     if localStorage["recentThoughtWallCodes"] is undefined
