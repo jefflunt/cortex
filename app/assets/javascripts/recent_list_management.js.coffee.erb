@@ -1,0 +1,15 @@
+$ ->
+  window.addThoughtWallCodeToRecentList = (code) ->
+    if localStorage["recentThoughtWalls"] is undefined
+      localStorage["recentThoughtWalls"] = code
+    else
+      if localStorage["recentThoughtWalls"].indexOf(code) is -1
+        localStorage["recentThoughtWalls"] = code + " " + localStorage["recentThoughtWalls"]
+        if localStorage["recentThoughtWalls"].split(" ").length > 10
+          removeOldestThoughtWall()
+          
+  removeOldestThoughtWall = ->
+    recentList = localStorage["recentThoughtWalls"]
+    if recentList
+      localStorage["recentThoughtWalls"] = recentList.substring(0, recentList.length-9)
+  

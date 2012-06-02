@@ -1,7 +1,12 @@
--content_for :title, "cortex - #{@thought_wall.code}"
+-content_for :title, "#{@thought_wall.title}"
 
 =render :partial => "collaboration_link"
 #thought-wall-form
   =render :partial => "form", :locals => {:thought_wall => @thought_wall}
   =render :partial => "thoughts/form", :locals => {:thought_wall => @thought_wall}
 =render :partial => "thoughts/thought_list", :locals => {:thoughts => @thought_wall.thoughts}
+
+%script
+  $(document).ready(function() {
+  ="addThoughtWallCodeToRecentList('#{@thought_wall.code}');"
+  });

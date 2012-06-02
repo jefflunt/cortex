@@ -5,6 +5,8 @@ $ ->
   window.overlayDiv = $('#overlay')
   window.overlayContentDiv = $('#overlay-content')
 
+  window.recentThoughtWallsDiv = $("#recent-thought-walls")
+
   window.renderTimestampDiv = $('#render_timestamp')
   window.nextThoughtWallRefreshDiv = $('#next_refresh')
 
@@ -18,7 +20,13 @@ $ ->
 
   window.getOverlayIsVisible = ->
     (overlayDiv.css('display') != 'none')
-
+  
+  window.toggleVisibilityOfRecentThoughtWallsDiv = ->
+    if (recentThoughtWallsDiv.css('opacity') is "1")
+      recentThoughtWallsDiv.animate({opacity: 0.0}, 100)
+    else
+      recentThoughtWallsDiv.animate({opacity: 1.0}, 100)
+  
   window.getCurrThoughtWallRefreshDelay = ->
     delayFromDOM = parseInt(nextThoughtWallRefreshDiv.html())
     if (isNaN(delayFromDOM) || delayFromDOM < minThoughtWallRefreshDelay)
