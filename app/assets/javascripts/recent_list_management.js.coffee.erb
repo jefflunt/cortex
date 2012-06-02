@@ -14,7 +14,11 @@ $ ->
       
       index = 0
       while index < recentCodes.length
-        recentThoughtWallsDiv.append('<a href="/'+recentCodes[index]+'">'+recentTitles[index]+'</a><br />')
+        displayTitle = recentTitles[index]
+        if displayTitle.length > 25
+          displayTitle = displayTitle.substring(0, 25) + "..."
+          
+        recentThoughtWallsDiv.append('<a href="/'+recentCodes[index]+'">'+displayTitle+'</a><br />')
         index++
 
   getRecentCodes = ->
