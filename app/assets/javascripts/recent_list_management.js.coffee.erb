@@ -1,15 +1,65 @@
 $ ->
-  window.addThoughtWallCodeToRecentList = (code) ->
-    if localStorage["recentThoughtWalls"] is undefined
-      localStorage["recentThoughtWalls"] = code
+  window.toggleVisibilityOfRecentThoughtWallsDiv = ->
+    if (recentThoughtWallsDiv.css('opacity') is "1")
+      recentThoughtWallsDiv.animate({opacity: 0.0}, 100)
     else
-      if localStorage["recentThoughtWalls"].indexOf(code) is -1
-        localStorage["recentThoughtWalls"] = code + " " + localStorage["recentThoughtWalls"]
-        if localStorage["recentThoughtWalls"].split(" ").length > 10
-          removeOldestThoughtWall()
-          
-  removeOldestThoughtWall = ->
-    recentList = localStorage["recentThoughtWalls"]
-    if recentList
-      localStorage["recentThoughtWalls"] = recentList.substring(0, recentList.length-9)
+      recentThoughtWallsDiv.animate({opacity: 1.0}, 100)
+
+  window.updateRecentThoughtWallsDiv = ->
+    if supportsHtml5Storage()
+      recentCodes  = getRecentCodes()
+      recentTitles = getRecentTitlesFromCodes(recentCodes)
+      
+      recentThoughtWallsDiv.empty()
+      
+      index = 0
+      while index < recentCodes.length
+        recentThoughtWallsDiv.append('<a href="/'+recentCodes[index]+'">'+recentTitles[index]+'</a><br />')
+        index++
+
+  getRecentCodes = ->
+    recentCodesList = localStorage["recentThoughtWallCodes"]
+    if recentCodesList
+      recentCodesArray = recentCodesList.split(" ")
+    else
+      []
+      
+  getRecentTitlesFromCodes = (codes) ->
+    recentTitlesList = []
+    index = 0
+    while index < codes.length
+      recentTitlesList.push(localStorage[ codes[index]+".title" ])
+      index++
+      
+    recentTitlesList
+
+  window.addThoughtWallCodeToRecentList = (code, title) ->
+    if supportsHtml5Storage()
+      makeSureRecentStorageIsInitialized()
+      
+      if notAlreadyInRecentList(code)
+        addNewRecentEntry(code, title)
+      
+      capRecentListAt(10)
+
+  makeSureRecentStorageIsInitialized = ->
+    if localStorage["recentThoughtWallCodes"] is undefined
+      localStorage["recentThoughtWallCodes"] = ""
+
+  notAlreadyInRecentList = (code) ->
+    localStorage["recentThoughtWallCodes"].indexOf(code) is -1
   
+  addNewRecentEntry = (code, title) ->
+    if localStorage["recentThoughtWallCodes"].length is 0
+      localStorage["recentThoughtWallCodes"] += code
+    else
+      localStorage["recentThoughtWallCodes"] = code + " " + localStorage["recentThoughtWallCodes"]
+      
+    localStorage[code+".title"] = title
+  
+  capRecentListAt = (cap) ->
+    recentCodes = getRecentCodes()
+    if recentCodes.length > cap
+      oldestCode = recentCodes.pop()
+      localStorage["recentThoughtWallCodes"] = recentCodes.join(" ")
+      localStorage.removeItem(oldestCode+".title")
