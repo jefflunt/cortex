@@ -10,3 +10,6 @@ window.supportsHtml5Storage = ->
     return "localStorage" of window and window["localStorage"] isnt null
   catch e
     return false
+
+window.updatePageTitle = (title) ->
+  $('title').html(title)
