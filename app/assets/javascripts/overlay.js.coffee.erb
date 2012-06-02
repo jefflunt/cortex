@@ -1,6 +1,12 @@
 $ ->
+  $(document).click (event) ->
+    if recentThoughtWallsDiv.css('opacity') is "1"
+      recentThoughtWallsDiv.animate({opacity: 0.0}, 100)
+
   $(document).keyup (event) ->
     if event.keyCode == 13 or event.keyCode == 27
+      unless recentThoughtWallsDiv.css("opacity") is "0"
+        recentThoughtWallsDiv.animate({opacity: 0.0}, 100)
       unless overlayDiv.css("display") is "none"
         overlayDiv.animate
           opacity: 0.0
