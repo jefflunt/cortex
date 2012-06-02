@@ -8,7 +8,7 @@
 
 %script
   $(document).ready(function() {
-  ="addThoughtWallCodeToRecentList('#{@thought_wall.code}', '#{@thought_wall.title}');"
+  ="addThoughtWallCodeToRecentList('#{@thought_wall.code}', '#{escape_javascript(@thought_wall.title)}');"
   delayAction(ajaxRefreshPage, minThoughtWallRefreshDelay);
   });
   
