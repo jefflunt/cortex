@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'haml'
 gem 'coffee-rails', '~> 3.2.1'
+gem 'therubyracer'
 gem 'rails_autolink'
 
 group :assets do
