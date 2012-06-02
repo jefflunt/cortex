@@ -1,8 +1,10 @@
 $ ->
   window.toggleVisibilityOfRecentThoughtWallsDiv = ->
     if (recentThoughtWallsDiv.css('opacity') is "1")
-      recentThoughtWallsDiv.animate({opacity: 0.0}, 100)
+      recentThoughtWallsDiv.animate({opacity: 0.0}, 100, ->
+        recentThoughtWallsDiv.hide())
     else
+      recentThoughtWallsDiv.show()
       recentThoughtWallsDiv.animate({opacity: 1.0}, 100)
 
   window.updateRecentThoughtWallsDiv = ->
