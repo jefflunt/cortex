@@ -1,2 +1,3 @@
 $('#update_thought_wall_spinner').hide();
 updateRecentCodeTitle('<%= @thought_wall.code %>', '<%= escape_javascript(@thought_wall.title) %>')
+delayAction(refreshPageNow, minThoughtWallRefreshDelay);
