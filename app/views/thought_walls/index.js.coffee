@@ -1,2 +1,0 @@
-toggleVisibilityOfRecentThoughtWallsDiv()
-updateRecentThoughtWallsDiv()

@@ -34,4 +34,7 @@ Cortex::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # Compiles assets, even in development
+  config.assets.compile = true
 end

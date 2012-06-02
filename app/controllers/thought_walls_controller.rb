@@ -1,8 +1,5 @@
 class ThoughtWallsController < ApplicationController
-  
-  def index
-  end
-  
+    
   def show
     @render_timestamp = Time.now.utc.to_i
     

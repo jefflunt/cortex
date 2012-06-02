@@ -1,4 +1,7 @@
 $ ->
+  recentThoughtWallsLink.click (event) ->
+    toggleVisibilityOfRecentThoughtWallsDiv()
+    updateRecentThoughtWallsDiv()
   focusOnNewThoughtText()
   
   $("body").delegate "#thought_text", "keyup", (event) ->

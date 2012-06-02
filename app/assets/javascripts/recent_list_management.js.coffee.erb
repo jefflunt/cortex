@@ -16,7 +16,9 @@ $ ->
       while index < recentCodes.length
         displayTitle = recentTitles[index]
         if displayTitle.length > 25
-          displayTitle = displayTitle.substring(0, 25) + "..."
+          displayTitle = displayTitle.substring(0, 25) + " ..."
+        if displayTitle.trim().length is 0
+          displayTitle = "(no title)"
           
         recentThoughtWallsDiv.append('<a href="/'+recentCodes[index]+'">'+displayTitle+'</a><br />')
         index++
