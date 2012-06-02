@@ -8,15 +8,15 @@ class Thought < ActiveRecord::Base
   validates :text,  :presence => true
   validates :text,  :uniqueness => { :scope => :thought_wall_id }
   
-  def keep?
-    keep == true
+  def positive_votes?
+    up_votes > down_votes
   end
   
-  def scratch?
-    keep == false
+  def negative_votes?
+    up_votes < down_votes
   end
   
-  def neutral?
-    keep == nil
+  def neutral_votes?
+    up_votes == down_votes
   end
 end

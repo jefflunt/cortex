@@ -5,11 +5,11 @@ module ThoughtHelper
     
     if thought.nil?
       combined_classes += "neutral"
-    elsif thought.keep?
+    elsif thought.positive_votes?
       combined_classes += "keep"
-    elsif thought.neutral?
+    elsif thought.neutral_votes?
       combined_classes += "neutral"
-    elsif thought.scratch?
+    elsif thought.negative_votes?
       combined_classes += "scratch"
     end
   end
