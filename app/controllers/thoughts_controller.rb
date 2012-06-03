@@ -15,13 +15,11 @@ class ThoughtsController < ApplicationController
   def update
     @thought = Thought.find(params[:id], :include => [:thought_wall])
     
-    case params[:keep]
-    when "keep"
-      @thought.keep = true
-    when "scratch"
-      @thought.keep = false
-    when "neutral"
-      @thought.keep = nil
+    case params[:vote]
+    when "up"
+      @thought.up_votes += 1
+    when "down"
+      @thought.down_votes += 1
     end
     
     @thought.save

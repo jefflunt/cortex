@@ -8,6 +8,10 @@ class Thought < ActiveRecord::Base
   validates :text,  :presence => true
   validates :text,  :uniqueness => { :scope => :thought_wall_id }
   
+  def score
+    up_votes - down_votes
+  end
+  
   def positive_votes?
     up_votes > down_votes
   end
