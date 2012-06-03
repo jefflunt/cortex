@@ -12,9 +12,14 @@ class ThoughtsController < ApplicationController
     Stat.increment("totals", "thoughts")
   end
   
+  def edit
+    @thought = Thought.find(params[:id])
+  end
+  
   def update
     @thought = Thought.find(params[:id], :include => [:thought_wall])
     
+    @thought.text = params[:thought][:text] if params[:thought] and params[:thought][:text]
     case params[:vote]
     when "up"
       @thought.up_votes += 1
