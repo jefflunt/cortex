@@ -6,8 +6,8 @@ class ReplaceHappySadWithVotes < ActiveRecord::Migration
     Thought.reset_column_information
     
     Thought.all.each do |t|
-      t.update_attribute(:up_votes, 1)   if t.keep?
-      t.update_attribute(:down_votes, 1) if t.scratch?
+      t.update_attribute(:up_votes, 1)   if t.keep and !t.nil?
+      t.update_attribute(:down_votes, 1) if !t.keep and !t.nil?
     end
     
     remove_column :thoughts, :keep
