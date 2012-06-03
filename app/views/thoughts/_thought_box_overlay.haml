@@ -2,7 +2,4 @@
   .thought-box-overlay{class: custom_styles(thought), id: "thought-box-#{thought.id}"}
     .thought
       =simple_format(auto_link(thought.text))
-    .thought-votes
-      =thought.score
-      =link_to("\u25bd", thought_path(thought,  :vote => "down"), {:method => :put, :remote => true})
-      =link_to("\u25b3", thought_path(thought,  :vote => "up"),    {:method => :put, :remote => true})
+    =render :partial => "thoughts/votes", :locals => {thought: thought}

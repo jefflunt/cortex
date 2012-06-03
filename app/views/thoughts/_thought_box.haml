@@ -3,7 +3,4 @@
   .thought
     =simple_format(auto_link(truncate(thought.text, length: 100, :omission => '')))
     =link_to('...', thought, remote: true) if thought.text.length > 100
-  .thought-votes
-    =thought.score
-    %span.size-big=link_to("+", thought_path(thought,  :vote => "up"),    {:method => :put, :remote => true})
-    %span.size-big=link_to("-", thought_path(thought,  :vote => "down"), {:method => :put, :remote => true})
+  =render :partial => "thoughts/votes", :locals => {thought: thought}

@@ -1,0 +1,4 @@
+.thought-votes
+  =thought.score
+  %span.size-big=link_to("+", thought_path(thought,  :vote => "up"),    {:method => :put, :remote => true})
+  %span.size-big=link_to("-", thought_path(thought,  :vote => "down"), {:method => :put, :remote => true})
