@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120602223526) do
+ActiveRecord::Schema.define(:version => 20120603193045) do
 
   create_table "stats", :force => true do |t|
     t.string  "group"
