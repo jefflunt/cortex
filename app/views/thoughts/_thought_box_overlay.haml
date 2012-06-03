@@ -2,4 +2,4 @@
   .thought-box-overlay{class: custom_styles(thought), id: "thought-box-#{thought.id}"}
     .thought
       =simple_format(auto_link(thought.text))
-    =render :partial => "thoughts/votes", :locals => {thought: thought}
+    =render :partial => "thoughts/bottom_section_overlay", :locals => {thought: thought}
