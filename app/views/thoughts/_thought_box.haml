@@ -5,5 +5,5 @@
     =link_to('...', thought, remote: true) if thought.text.length > 100
   .thought-votes
     =thought.score
-    =link_to("\u25bd", thought_path(thought,  :vote => "down"), {:method => :put, :remote => true})
-    =link_to("\u25b3", thought_path(thought,  :vote => "up"),    {:method => :put, :remote => true})    
+    %span.size-big=link_to("+", thought_path(thought,  :vote => "up"),    {:method => :put, :remote => true})
+    %span.size-big=link_to("-", thought_path(thought,  :vote => "down"), {:method => :put, :remote => true})
