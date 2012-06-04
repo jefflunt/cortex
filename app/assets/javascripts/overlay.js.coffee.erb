@@ -1,20 +1,32 @@
 $ ->
   $(document).click (event) ->
-    if recentThoughtWallsDiv.css('opacity') is "1"
-      toggleVisibilityOfRecentThoughtWallsDiv()
+    hideRecentListIfNecessary()
+    hideThoughtHistoriesIfNecessary(event)
 
   $(document).keyup (event) ->
     if event.keyCode == 13 or event.keyCode == 27
-      unless recentThoughtWallsDiv.css("opacity") is "0"
-        toggleVisibilityOfRecentThoughtWallsDiv()
-      unless overlayDiv.css("display") is "none"
-        overlayDiv.animate
-          opacity: 0.0
-        , 100, ->
-          overlayDiv.hide()
-
+      hideOverlayIfNecessary()
+      hideRecentListIfNecessary()
+      hideThoughtHistoriesIfNecessary(event)
+      
   $('#overlay-close').on "click", (event) ->
     overlayDiv.animate
       opacity: 0.0
     , 100, ->
       overlayDiv.hide()
+      
+  hideOverlayIfNecessary = ->
+    unless overlayDiv.css("display") is "none"
+      overlayDiv.animate
+        opacity: 0.0
+      , 100, ->
+        overlayDiv.hide()
+      
+  hideRecentListIfNecessary = ->
+    if recentThoughtWallsDiv.css('opacity') is "1"
+      toggleVisibilityOfRecentThoughtWallsDiv()
+  
+  hideThoughtHistoriesIfNecessary = (event) ->
+    classOfTargetElement = event.target.getAttribute("class")
+    if classOfTargetElement is null || classOfTargetElement.indexOf("thought-history-link") == -1
+        hideAllThoughtHistoryBoxes()

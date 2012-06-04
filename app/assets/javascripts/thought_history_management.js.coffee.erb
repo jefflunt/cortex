@@ -1,3 +1,7 @@
 $ ->
   window.toggleThoughtHistoryDisplay = (id) ->
+    hideAllThoughtHistoryBoxes()
     $("#thought-histories-box-" + id).toggleClass("hidden")
+    
+  window.hideAllThoughtHistoryBoxes = ->
+    thoughtHistoryBoxes.addClass("hidden")
