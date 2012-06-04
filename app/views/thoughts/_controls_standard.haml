@@ -1,3 +1,4 @@
 .thought-controls
+  =link_to("\u25f7", "javascript:;", {id: "thought-history-#{thought.id}", class: "thought-history-link", title: "History"})
   =link_to("\u270e", edit_thought_path(thought), {remote: true, title: "Edit this thought"})
   =link_to("\u25ff", thought, {remote: true, title: "Display full screen"})

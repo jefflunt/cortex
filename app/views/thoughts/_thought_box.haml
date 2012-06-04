@@ -3,3 +3,4 @@
   .thought
     =simple_format(auto_link(thought.text))
   =render :partial => "thoughts/bottom_section_standard", :locals => {thought: thought}
+  =render :partial => "thoughts/thought_history", :locals => {thought: thought}

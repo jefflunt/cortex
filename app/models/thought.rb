@@ -1,5 +1,6 @@
 class Thought < ActiveRecord::Base
   belongs_to :thought_wall
+  has_many :thought_histories, :dependent => :destroy, :order => 'id ASC'
   
   attr_accessible :thought_wall_id
   attr_accessible :text
