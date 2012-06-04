@@ -1,2 +1,6 @@
 .thought-history-entry
-  .thought-history-text=thought_history.text
+  .thought-history-text
+    =thought_history.text
+  .thought-history-bottom-section
+    .thought-history-controls
+      =link_to("\u27f2", thought_path(thought_history.thought, thought: {text: thought_history.text}), remote: true, method: :put, title: "Restore this revision")
