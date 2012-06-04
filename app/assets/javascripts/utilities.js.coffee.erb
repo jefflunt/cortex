@@ -6,10 +6,7 @@ window.delayAction = (->
 )()
 
 window.supportsHtml5Storage = ->
-  try
-    return "localStorage" of window and window["localStorage"] isnt null
-  catch e
-    return false
+  return !!window.localStorage
 
 window.updatePageTitle = (title) ->
   $('title').html(title)

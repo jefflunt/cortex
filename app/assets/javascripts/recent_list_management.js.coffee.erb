@@ -54,19 +54,23 @@ $ ->
     localStorage[code+".title"] = title
 
   makeSureRecentStorageIsInitialized = ->
-    if localStorage["recentThoughtWallCodes"] is undefined
+    if !localStorage["recentThoughtWallCodes"]
       localStorage["recentThoughtWallCodes"] = ""
 
   notAlreadyInRecentList = (code) ->
-    localStorage["recentThoughtWallCodes"].indexOf(code) is -1
+    if supportsHtml5Storage()
+      localStorage["recentThoughtWallCodes"].indexOf(code) is -1
+    else
+      false
   
   addNewRecentEntry = (code, title) ->
-    if localStorage["recentThoughtWallCodes"].length is 0
-      localStorage["recentThoughtWallCodes"] += code
-    else
-      localStorage["recentThoughtWallCodes"] = code + " " + localStorage["recentThoughtWallCodes"]
+    if supportsHtml5Storage()
+      if localStorage["recentThoughtWallCodes"].length is 0
+        localStorage["recentThoughtWallCodes"] += code
+      else
+        localStorage["recentThoughtWallCodes"] = code + " " + localStorage["recentThoughtWallCodes"]
       
-    localStorage[code+".title"] = title
+      localStorage[code+".title"] = title
   
   capRecentListAt = (cap) ->
     recentCodes = getRecentCodes()
