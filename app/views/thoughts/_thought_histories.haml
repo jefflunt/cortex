@@ -1,0 +1,5 @@
+.thought-histories-box.hidden{id: "thought-histories-box-#{thought.id}"}
+  -if thought.thought_histories.count == 0
+    No previous history
+  -thought.thought_histories.each do |history|
+    =render partial: "thoughts/thought_history_entry", :locals => {thought_history: history}

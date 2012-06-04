@@ -19,7 +19,15 @@ class ThoughtsController < ApplicationController
   def update
     @thought = Thought.find(params[:id], :include => [:thought_wall])
     
-    @thought.text = params[:thought][:text] if params[:thought] and params[:thought][:text]
+    if params[:thought] and params[:thought][:text]
+      ThoughtHistory.create(thought_id: @thought.id, text: @thought.text)
+      while @thought.thought_histories.count > Thought::MAX_HISTORY_LENGTH
+        @thought.oldest_history_entry.destroy
+      end
+      
+      @thought.text = params[:thought][:text]
+    end
+    
     case params[:vote]
     when "up"
       @thought.up_votes += 1
