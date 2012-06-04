@@ -1,5 +1,5 @@
 -is_new_thought ||= nil
 .thought-box{class: custom_styles(thought, is_new_thought), id: "thought-box-#{thought.id}"}
   .thought
-    =simple_format(auto_link(truncate(thought.text, length: 99, :omission => ' ...')))
+    =simple_format(auto_link(thought.text))
   =render :partial => "thoughts/bottom_section_standard", :locals => {thought: thought}
