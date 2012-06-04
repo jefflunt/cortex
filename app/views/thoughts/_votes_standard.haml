@@ -1,4 +1,4 @@
 .thought-votes
-  =link_to("-", thought_path(thought,  :vote => "down"), {:method => :put, :remote => true})
-  =link_to("+", thought_path(thought,  :vote => "up"),    {:method => :put, :remote => true})
+  =link_to("-", thought_path(thought,  :vote => "down"), {method: :put, remote: true, title: "Down vote"})
+  =link_to("+", thought_path(thought,  :vote => "up"),   {method: :put, remote: true, title: "Up vote"})
   =thought.score
