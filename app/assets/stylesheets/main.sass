@@ -93,16 +93,18 @@ a
   width: 30%
   right: 0px
 .thought-box-overlay-background
+  position: relative
   background-color: $color-dark-grey
   width: 100%
   height: 100%
 .thought-box-overlay
-  width: 100%
   height: 100%
-  overflow: auto
+  width: auto
+  overflow-y: scroll
+  overflow-x: hidden
 .thought-overlay
-  width: 100%
-  height: 100%
+  padding-left: 15px
+  padding-right: 15px
 .thought-box
   width: 215px
   height: 125px
@@ -126,17 +128,18 @@ a
   border-bottom-right-radius: 5px
   height: 24px
   bottom: 0px
-.thought-bottom-section-overlay
-  @extend .thought-bottom-section-standard
-  border-radius: 0px
-  position: absolute
+.thought-top-section-overlay
+  background-color: black
   width: 100%
   height: 37px
-  bottom: 0px
 .thought-controls
   position: absolute
   bottom: 3px
   right: 5px
+.thought-votes-overlay
+  position: relative
+  top: 5px
+  left: 15px
 .thought-votes
   position: absolute
   bottom: 3px

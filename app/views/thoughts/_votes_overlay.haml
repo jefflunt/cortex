@@ -1,4 +1,4 @@
-.thought-votes
+.thought-votes-overlay
   %span.size-big=link_to("-", thought_path(thought,  :vote => "down"), {method: :put, remote: true, title: "Down vote"})
   %span.size-big=link_to("+", thought_path(thought,  :vote => "up"),   {method: :put, remote: true, title: "Up vote"})
   %span.size-big=thought.score
