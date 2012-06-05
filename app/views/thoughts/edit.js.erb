@@ -1,5 +1,14 @@
-$('#thought-box-<%= @thought.id %> .thought').replaceWith('<%= escape_javascript(render :partial => "thoughts/edit", :locals => {thought: @thought, thought_wall: @thought.thought_wall}) %>');
+if (overlayDiv.css("opacity") == "1") {
+  $('.thought-overlay').replaceWith('<%= escape_javascript(render :partial => "thoughts/edit_overlay", :locals => {thought: @thought, thought_wall: @thought.thought_wall}) %>');
+} else{
+  $('#thought-box-<%= @thought.id %> .thought').replaceWith('<%= escape_javascript(render :partial => "thoughts/edit", :locals => {thought: @thought, thought_wall: @thought.thought_wall}) %>');
+}
+
 $('#edit-thought-text').focus();
 $('#edit-thought-text').blur(function(event) {
+  $("#edit_thought_<%= @thought.id %>").submit();
+});
+
+$('#edit-thought-text-overlay').blur(function(event) {
   $("#edit_thought_<%= @thought.id %>").submit();
 });

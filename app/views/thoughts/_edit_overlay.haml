@@ -1,0 +1,4 @@
+#thought-edit-overlay
+  =form_for thought, {:method => :put, :remote => true} do |f|
+    =f.hidden_field :thought_wall_id, :value => thought_wall.id
+    =f.text_area :text, id: "edit-thought-text-overlay"
