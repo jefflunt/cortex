@@ -6,6 +6,12 @@ class ThoughtWall < ActiveRecord::Base
   validates :title, :presence => true
   
   def highest_manual_order_value
-    thoughts.select("manual_order").order("manual_order DESC").limit(1).first.manual_order
+    last_manually_sorted_thought = thoughts.select("manual_order").order("manual_order DESC").limit(1).first
+  
+    last_manually_sorted_thought.nil? ? nil : last_manually_sorted_thought.manual_order
+  end
+  
+  def next_manual_order_value
+    highest_manual_order_value.nil? ? 0 : highest_manual_order_value + 1
   end
 end

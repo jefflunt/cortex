@@ -11,7 +11,7 @@ class Thought < ActiveRecord::Base
   validates :text,  presence: true
   validates :text,  uniqueness: { :scope => :thought_wall_id }
   
-  scope :drag_and_drop_order, order: 'manual_order ASC'
+  scope :drag_and_drop_order, order: 'manual_order DESC'
   scope :newest_first, order: 'id DESC'
   scope :oldest_first, order: 'id ASC'
   
