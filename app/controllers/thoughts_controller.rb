@@ -20,13 +20,37 @@ class ThoughtsController < ApplicationController
   def update
     @thought = Thought.find(params[:id], :include => [:thought_wall])
     
-    if params[:thought] and params[:thought][:text]
-      ThoughtHistory.create(thought_id: @thought.id, text: @thought.text)
-      while @thought.thought_histories.count > Thought::MAX_HISTORY_LENGTH
-        @thought.oldest_history_entry.destroy
+    if params[:thought]
+      if params[:thought][:text]
+        ThoughtHistory.create(thought_id: @thought.id, text: @thought.text)
+        while @thought.thought_histories.count > Thought::MAX_HISTORY_LENGTH
+          @thought.oldest_history_entry.destroy
+        end
+      
+        @thought.text = params[:thought][:text]
       end
       
-      @thought.text = params[:thought][:text]
+      if params[:thought][:ui_position]
+        #determine new manual order
+        ui_position = params[:thought][:ui_position].to_i
+        new_manual_order = @thought.thought_wall.thoughts.count - ui_position - 1
+        
+        #re-order
+        thoughts_to_reorder = @thought.thought_wall.thoughts.drag_and_drop_order.where(["manual_order <= ? AND id NOT IN (?)", new_manual_order, @thought.id])
+        thoughts_to_reorder.each_with_index do |t, index|
+          t.update_attribute(:manual_order, new_manual_order - (index + 1))
+        end
+        
+        #assign new order to modified thought
+        @thought.manual_order = new_manual_order
+        
+        Rails.logger.info "!!!!!!!!!!!!!!"
+        Rails.logger.info "total items     : #{@thought.thought_wall.thoughts.count}"
+        Rails.logger.info "highest order   : #{@thought.thought_wall.highest_manual_order_value}"
+        Rails.logger.info "new UI position : #{ui_position}"
+        Rails.logger.info "new manual_order: #{new_manual_order}"
+        Rails.logger.info "!!!!!!!!!!!!!!"
+      end
     end
     
     case params[:vote]

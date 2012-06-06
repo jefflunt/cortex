@@ -4,7 +4,7 @@
 #thought-wall-form
   =render :partial => "form", :locals => {:thought_wall => @thought_wall}
   =render :partial => "thoughts/form", :locals => {:thought_wall => @thought_wall}
-=render :partial => "thoughts/thought_list", :locals => {:thoughts => @thought_wall.thoughts.newest_first}
+=render :partial => "thoughts/thought_list", :locals => {:thoughts => @thought_wall.thoughts.drag_and_drop_order}
 
 %script
   $(document).ready(function() {
