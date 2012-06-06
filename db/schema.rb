@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604114724) do
+ActiveRecord::Schema.define(:version => 20120606021309) do
 
   create_table "stats", :force => true do |t|
     t.string  "group"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20120604114724) do
     t.datetime "updated_at",                     :null => false
     t.integer  "up_votes",        :default => 0
     t.integer  "down_votes",      :default => 0
+    t.integer  "manual_order"
   end
 
 end
