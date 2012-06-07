@@ -21,16 +21,11 @@ $ ->
     
   $(document).ready ->
     $('#thought-list').sortable({stop: (event, ui) ->
-      console.log ui.item[0].getAttribute("id")
       thoughtBoxIdParts = ui.item[0].getAttribute("id").split('-')
       backendID = thoughtBoxIdParts[thoughtBoxIdParts.length-1]
-      console.log ui.item.index()
       $.ajax({
         type: "POST",
         url: '/thoughts/'+backendID+'.js',
-        data: { _method:'PUT', thought: { ui_position: ui.item.index() } },
-        dataType: 'javascript',
-        success: (msg) ->
-          console.log("Data Saved: " + msg)
+        data: { _method:'PUT', thought: { ui_position: ui.item.index() } }
       })
     })
