@@ -26,7 +26,7 @@ $ ->
 
   window.getOverlayIsVisible = ->
     (overlayDiv.css('display') != 'none')
-  
+    
   window.getCurrThoughtWallRefreshDelay = ->
     delayFromDOM = parseInt(nextThoughtWallRefreshDiv.html())
     if (isNaN(delayFromDOM) || delayFromDOM < minThoughtWallRefreshDelay)
