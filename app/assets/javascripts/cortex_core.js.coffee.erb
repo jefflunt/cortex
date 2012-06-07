@@ -49,3 +49,7 @@ $ ->
 
   window.ajaxRefreshPage = ->
     $.get document.URL+".js?since="+getRenderTimestamp()+"&next_refresh="+getCurrThoughtWallRefreshDelay()
+
+  $(document).ready ->
+    addThoughtWallCodeToRecentList($('#thought-wall-code').html(), $('title').html())
+    delayAction(ajaxRefreshPage, minThoughtWallRefreshDelay)

@@ -11,6 +11,8 @@
 <body>
   <div id="render_timestamp"  class="hidden"><%= @render_timestamp  if defined?(@render_timestamp) %></div>
   <div id="next_refresh"      class="hidden"><%= @next_refresh      if defined?(@next_refresh) %></div>
+  <div id="thought-wall-code" class="hidden"><%= @thought_wall.code if defined?(@thought_wall) %></div>
+  
   <%= render :partial => 'navigation/nav_bar' %>
   <div id="content">
     <%= yield %>

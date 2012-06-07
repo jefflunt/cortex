@@ -5,11 +5,3 @@
   =render :partial => "form", :locals => {:thought_wall => @thought_wall}
   =render :partial => "thoughts/form", :locals => {:thought_wall => @thought_wall}
 =render :partial => "thoughts/thought_list", :locals => {:thoughts => @thought_wall.thoughts.drag_and_drop_order}
-
-%script
-  $(document).ready(function() {
-  ="addThoughtWallCodeToRecentList('#{@thought_wall.code}', '#{escape_javascript(@thought_wall.title)}');"
-  delayAction(ajaxRefreshPage, minThoughtWallRefreshDelay);
-  });
-  
-  
