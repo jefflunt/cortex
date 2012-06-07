@@ -31,23 +31,12 @@ class ThoughtsController < ApplicationController
       end
       
       if params[:thought][:ui_position]
-        #determine new manual order
         new_ui_position = params[:thought][:ui_position].to_i
         new_manual_order = @thought.determine_new_manual_order_value_from(new_ui_position)
         
-        #re-order
         @thought.reorder_siblings_relative_to(new_manual_order) unless @thought.manual_order == new_manual_order
         
-        
-        #assign new order to modified thought
         @thought.manual_order = new_manual_order
-        
-        Rails.logger.info "!!!!!!!!!!!!!!"
-        Rails.logger.info "total items     : #{@thought.thought_wall.thoughts.count}"
-        Rails.logger.info "highest order   : #{@thought.thought_wall.highest_manual_order_value}"
-        Rails.logger.info "new UI position : #{new_ui_position}"
-        Rails.logger.info "new manual_order: #{new_manual_order}"
-        Rails.logger.info "!!!!!!!!!!!!!!"
       end
     end
     
