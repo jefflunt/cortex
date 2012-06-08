@@ -1,5 +1,41 @@
 $ ->
-  window.slideThoughtIn = (element, callback) ->
+  window.shiftThought = (fromIndex, toIndex) ->    
+    numElements = $('.thought-box').length
+    fromIndex = normalizeIndex(fromIndex, numElements) 
+    toIndex   = normalizeIndex(toIndex, numElements)
+    
+    unless fromIndex is toIndex
+      
+      idFrom = getNearestIdToIndex(fromIndex, numElements)
+      idTo   = getNearestIdToIndex(toIndex,   numElements) if fromIndex > toIndex
+      idTo   = getNearestIdToIndex(toIndex+1, numElements) if fromIndex < toIndex
+      
+      shouldInsertAfter = toIndex is numElements
+      
+      movingElement = $('#'+idFrom)
+      
+      slideThoughtOut(
+        movingElement,
+        ->
+          if (shouldInsertAfter)
+            movingElement.insertAfter($('#'+idTo))
+          else
+            movingElement.insertBefore($('#'+idTo))
+          
+          slideThoughtIn(movingElement, -> )
+      )
+  
+  getNearestIdToIndex = (index, numElements) ->
+    return $('.thought-box').get(numElements-1).getAttribute("id") if index >= numElements
+    return $('.thought-box').get(0).getAttribute("id") if index <= 0
+    return $('.thought-box').get(index).getAttribute("id")
+  
+  normalizeIndex = (index, numElements) ->
+    return 0 if index <= 0
+    return numElements if index > numElements
+    return index
+  
+  slideThoughtIn = (element, callback) ->
     element.animate({
       width: 215}, 
       500, 
@@ -7,7 +43,7 @@ $ ->
         $(this).animate({opacity: 1.0}, 175, callback)
     )
     
-  window.slideThoughtOut = (element, callback) ->
+  slideThoughtOut = (element, callback) ->
     element.animate({
       opacity: 0.0},
       175,
