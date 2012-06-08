@@ -1,0 +1,16 @@
+$ ->
+  window.slideThoughtIn = (element, callback) ->
+    element.animate({
+      width: 215}, 
+      500, 
+      ->
+        $(this).animate({opacity: 1.0}, 175, callback())
+    )
+    
+  window.slideThoughtOut = (element, callback) ->
+    element.animate({
+      opacity: 0.0},
+      175,
+      ->
+        $(this).animate({width: 0}, 500, callback())
+    )

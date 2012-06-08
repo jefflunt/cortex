@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120607181339) do
+ActiveRecord::Schema.define(:version => 20120608012816) do
 
   create_table "stats", :force => true do |t|
     t.string  "group"
@@ -40,11 +40,12 @@ ActiveRecord::Schema.define(:version => 20120607181339) do
   create_table "thoughts", :force => true do |t|
     t.integer  "thought_wall_id"
     t.text     "text"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "up_votes",        :default => 0
-    t.integer  "down_votes",      :default => 0
+    t.datetime "created_at",                                             :null => false
+    t.datetime "updated_at",                                             :null => false
+    t.integer  "up_votes",            :default => 0
+    t.integer  "down_votes",          :default => 0
     t.integer  "manual_order"
+    t.datetime "position_updated_at", :default => '2012-06-08 01:31:34'
   end
 
 end
