@@ -37,6 +37,7 @@ class ThoughtsController < ApplicationController
         @thought.reorder_siblings_relative_to(new_manual_order) unless @thought.manual_order == new_manual_order
         
         @thought.manual_order = new_manual_order
+        @thought.position_updated_at = Time.now
       end
     end
     

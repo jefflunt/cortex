@@ -7,12 +7,18 @@ if ($('#safe-to-alter-layout').html() === "true") {
   <% end %>
 
   <% @thoughts.each do |thought| %>
-    thoughtBoxIsNewToClient = ($("#thought-box-<%= thought.id.to_s %>").length == 0);
+    thought_box_id_selector = "#thought-box-<%= thought.id.to_s %>"
+    
+    thoughtBoxIsNewToClient = ($(thought_box_id_selector).length == 0);
     if (thoughtBoxIsNewToClient) {
       thoughtListDiv.prepend("<%= escape_javascript(render(:partial => 'thoughts/thought_box', :locals => {:thought => thought, :is_new_thought => true})) %>");
-      $('#thought-box-<%= thought.id.to_s %>').animate({width: 215}, 500, function() { $(this).animate({opacity: 1.0}, 175, function() { $(this).removeClass('new-thought-box'); }) });
+      $(thought_box_id_selector).animate({width: 215}, 500, function() { $(this).animate({opacity: 1.0}, 175, function() { $(this).removeClass('new-thought-box'); }) });
     } else {
-      $("#thought-box-<%= thought.id.to_s %>").replaceWith("<%= escape_javascript(render(:partial => 'thoughts/thought_box', :locals => {:thought => thought})) %>");
+      $(thought_box_id_selector).replaceWith("<%= escape_javascript(render(:partial => 'thoughts/thought_box', :locals => {:thought => thought})) %>");
+      <% if thought.position_updated_at >= @last_render_at %>
+        slideThoughtOut($(thought_box_id_selector), function() {$('#thought-list').prepend($(thought_box_id_selector)) })
+        slideThoughtIn($(thought_box_id_selector), function() {})
+      <% end %>
     }
   <% end %>
 }
