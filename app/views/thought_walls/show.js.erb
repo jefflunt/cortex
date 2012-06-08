@@ -1,5 +1,4 @@
 if ($('#safe-to-alter-layout').html() === "true") {
-  console.log("Applying updates...")
   setRenderTimestamp(<%= @render_timestamp %>)
 
   <% if @update_client_title %>
@@ -16,8 +15,6 @@ if ($('#safe-to-alter-layout').html() === "true") {
       $("#thought-box-<%= thought.id.to_s %>").replaceWith("<%= escape_javascript(render(:partial => 'thoughts/thought_box', :locals => {:thought => thought})) %>");
     }
   <% end %>
-} else {
-  console.log("Skipping updates...")
 }
 
 setNextThoughtWallRefreshDelay(<%= @next_refresh %>);
