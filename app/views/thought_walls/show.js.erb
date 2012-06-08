@@ -16,8 +16,10 @@ if ($('#safe-to-alter-layout').html() === "true") {
     } else {
       $(thought_box_id_selector).replaceWith("<%= escape_javascript(render(:partial => 'thoughts/thought_box', :locals => {:thought => thought})) %>");
       <% if thought.position_updated_at >= @last_render_at %>
-        slideThoughtOut($(thought_box_id_selector), function() {$('#thought-list').prepend($(thought_box_id_selector)) })
-        slideThoughtIn($(thought_box_id_selector), function() {})
+        currentIndex = $(thought_box_id_selector).index()
+        intendedIndex = <%= thought.intended_ui_position %>
+        
+        shiftThought(currentIndex, intendedIndex)
       <% end %>
     }
   <% end %>

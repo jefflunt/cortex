@@ -21,6 +21,8 @@ $ ->
     
   $(document).ready ->
     $('#thought-list').sortable({
+      start: (event, ui) ->
+        $('#safe-to-alter-layout').html('false')
       stop: (event, ui) -> 
         thoughtBoxIdParts = ui.item[0].getAttribute("id").split('-')
         backendID = thoughtBoxIdParts[thoughtBoxIdParts.length-1]
@@ -31,6 +33,3 @@ $ ->
         })
         $('#safe-to-alter-layout').html('true')
     })
-    
-    $('#thought-list').on "mousedown", (event) ->
-      $('#safe-to-alter-layout').html('false')

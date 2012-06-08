@@ -6,7 +6,7 @@ class ThoughtWallsController < ApplicationController
     if params[:since]
       @last_render_at = Time.at(params[:since].to_i).utc
       @thought_wall = ThoughtWall.find_by_code(params[:id])
-      @thoughts = Thought.where(["thought_wall_id = ? AND updated_at >= ?", @thought_wall.id, @last_render_at]).order("id DESC").includes(:thought_histories)
+      @thoughts = Thought.where(["thought_wall_id = ? AND updated_at >= ?", @thought_wall.id, @last_render_at]).order("position_updated_at ASC").includes(:thought_histories)
       
       @update_client_title = @thought_wall.updated_at > @last_render_at
       if @update_client_title || @thoughts.count > 0

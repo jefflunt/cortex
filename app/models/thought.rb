@@ -42,6 +42,10 @@ class Thought < ActiveRecord::Base
     end
   end
   
+  def intended_ui_position
+    siblings.count - manual_order - 1
+  end
+  
   def siblings
     thought_wall.thoughts
   end
