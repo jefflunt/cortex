@@ -11,8 +11,8 @@ class Thought < ActiveRecord::Base
   validates :text,  presence: true
   validates :text,  uniqueness: { :scope => :thought_wall_id }
   
-  scope :drag_and_drop_order,         order: 'manual_order DESC'
-  scope :reverse_drag_and_drop_order, order: 'manual_order ASC'
+  scope :manual_order, order: 'manual_order ASC'
+  scope :ui_order,     order: 'manual_order DESC'
   
   scope :newest_first, order: 'id DESC'
   scope :oldest_first, order: 'id ASC'
@@ -30,12 +30,12 @@ class Thought < ActiveRecord::Base
     moving_closer_to_front_of_list = (manual_order < new_manual_order)
     
     if moving_closer_to_front_of_list
-      thoughts_to_reorder = siblings.drag_and_drop_order.where(["manual_order <= ? AND id NOT IN (?)", new_manual_order, id])
+      thoughts_to_reorder = siblings.ui_order.where(["manual_order <= ? AND id NOT IN (?)", new_manual_order, id])
       thoughts_to_reorder.each_with_index do |t, index|
         t.update_attribute(:manual_order, new_manual_order - (index + 1))
       end
     else
-      thoughts_to_reorder = siblings.reverse_drag_and_drop_order.where(["manual_order >= ? AND id NOT IN (?)", new_manual_order, id])
+      thoughts_to_reorder = siblings.manual_order.where(["manual_order >= ? AND id NOT IN (?)", new_manual_order, id])
       thoughts_to_reorder.each_with_index do |t, index|
         t.update_attribute(:manual_order, new_manual_order + (index + 1))
       end

@@ -4,4 +4,4 @@
 #thought-wall-form
   =render :partial => "form", :locals => {:thought_wall => @thought_wall}
   =render :partial => "thoughts/form", :locals => {:thought_wall => @thought_wall}
-=render :partial => "thoughts/thought_list", :locals => {:thoughts => @thought_wall.thoughts.drag_and_drop_order}
+=render :partial => "thoughts/thought_list", :locals => {:thoughts => @thought_wall.thoughts.ui_order}
