@@ -10,3 +10,17 @@ window.supportsHtml5Storage = ->
 
 window.updatePageTitle = (title) ->
   $('title').html(title)
+  
+window.removeDuplicateIdsAmong = (selector) ->
+  elements = $(selector)
+  elements.each( (index, element) ->
+    currentId = element.id
+    searchIndex = index+1
+    while (searchIndex < elements.length)
+      if (elements[searchIndex].id is currentId)
+        elements[searchIndex].className += " duplicate"
+        
+      searchIndex++
+      
+    $('.duplicate').remove()
+  )

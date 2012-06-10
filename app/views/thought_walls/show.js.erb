@@ -37,6 +37,7 @@ if ($('#safe-to-alter-layout').html() === "true") {
   if (index < clientOrder.length) {
     shiftThought($('#thought-box-'+serverOrder[index]).index(), index);
   }
+  removeDuplicateIdsAmong('.thought-box');
 }
 
 setNextThoughtWallRefreshDelay(<%= @next_refresh %>);
