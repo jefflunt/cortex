@@ -1,5 +1,6 @@
 $ ->
   window.minThoughtWallRefreshDelay = 1500
+  window.requestFailRetryDelay = 30000
   window.maxThoughtLength = 65500
   
   window.thoughtWallTitleInput = $("#thought_wall_title")
@@ -48,57 +49,9 @@ $ ->
     newThoughtTextRemainingCountDiv.html('remaining: ' + (maxThoughtLength - newThoughtTextarea.val().length))
 
   window.ajaxRefreshPage = ->
-    $.get document.URL+".js?since="+getRenderTimestamp()+"&next_refresh="+getCurrThoughtWallRefreshDelay()
-
-  window.numericalOrder = ->
-    shiftThought($('#thought-box-229').index(), 0)
-    shiftThought($('#thought-box-230').index(), 1)
-    shiftThought($('#thought-box-231').index(), 2)
-    shiftThought($('#thought-box-232').index(), 3)
-    shiftThought($('#thought-box-233').index(), 4)
-    shiftThought($('#thought-box-234').index(), 5)
-    shiftThought($('#thought-box-235').index(), 6)
-    shiftThought($('#thought-box-236').index(), 7)
-    shiftThought($('#thought-box-237').index(), 8)
-    shiftThought($('#thought-box-238').index(), 9)
-    shiftThought($('#thought-box-239').index(), 10)
-    shiftThought($('#thought-box-240').index(), 11)
-    shiftThought($('#thought-box-241').index(), 12)
-    shiftThought($('#thought-box-242').index(), 13)
-    shiftThought($('#thought-box-243').index(), 14)
-  
-  window.reverseNumericalOrder = ->
-    shiftThought($('#thought-box-243').index(), 0)
-    shiftThought($('#thought-box-242').index(), 1)
-    shiftThought($('#thought-box-241').index(), 2)
-    shiftThought($('#thought-box-240').index(), 3)
-    shiftThought($('#thought-box-239').index(), 4)
-    shiftThought($('#thought-box-238').index(), 5)
-    shiftThought($('#thought-box-237').index(), 6)
-    shiftThought($('#thought-box-236').index(), 7)
-    shiftThought($('#thought-box-235').index(), 8)
-    shiftThought($('#thought-box-234').index(), 9)
-    shiftThought($('#thought-box-233').index(), 10)
-    shiftThought($('#thought-box-232').index(), 11)
-    shiftThought($('#thought-box-231').index(), 12)
-    shiftThought($('#thought-box-230').index(), 13)        
-    shiftThought($('#thought-box-229').index(), 14)
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
-
-    
-    
-    
-    
+    $.get(document.URL+".js?since="+getRenderTimestamp()+"&next_refresh="+getCurrThoughtWallRefreshDelay()).error( -> 
+      delayAction(ajaxRefreshPage, requestFailRetryDelay)
+    )
 
   $(document).ready ->
     addThoughtWallCodeToRecentList($('#thought-wall-code').html(), $('title').html())
