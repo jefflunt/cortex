@@ -6,11 +6,13 @@ class ThoughtsController < ApplicationController
   
   def create
     # In the future, do a "find_or_create_by" method here to handle duplicates
-    @thought = Thought.new(params[:thought])
-    @thought.manual_order = @thought.thought_wall.next_manual_order_value
-    @thought.save!
+    unless params[:thought][:text].strip.empty?
+      @thought = Thought.new(params[:thought])
+      @thought.manual_order = @thought.thought_wall.next_manual_order_value
+      @thought.save!
     
-    Stat.increment("totals", "thoughts")
+      Stat.increment("totals", "thoughts")
+    end
   end
   
   def edit

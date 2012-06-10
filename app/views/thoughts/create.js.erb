@@ -1,0 +1,12 @@
+// Update the UI after a new Thought is created on the server side
+
+setNextThoughtWallRefreshDelay(minThoughtWallRefreshDelay);
+clearNewThoughtForm();
+
+<% if @thought != nil %>
+  $('#thought-list').prepend("<%= escape_javascript(render(:partial => 'thoughts/thought_box', :locals => {:thought => @thought, :is_new_thought => true})) %>");
+  slideThoughtIn($('#thought-box-<%= escape_javascript(@thought.id.to_s) %>'), function() { $(this).removeClass('new-thought-box') })
+<% end %>
+
+focusOnNewThoughtText();
+delayAction(ajaxRefreshPage, getCurrThoughtWallRefreshDelay());
