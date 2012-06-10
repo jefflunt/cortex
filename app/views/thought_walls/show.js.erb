@@ -18,7 +18,7 @@ if ($('#safe-to-alter-layout').html() === "true") {
     }
   <% end %>
   
-  <% @thought_wall.thoughts.manual_order.each do |t| %>
+  <% @thought_wall.thoughts.ui_order.each do |t| %>
     <% if t.position_updated_at > @last_render_at %>
       shiftThought($('#thought-box-'+<%= t.id %>).index(), <%= t.intended_ui_position %>)
     <% end %>
