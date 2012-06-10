@@ -18,6 +18,20 @@ $ ->
       $("#update_thought_wall_spinner").hide()
     ), 100
     false
+  
+  window.getClientThoughtBoxOrder = () ->
+    clientOrder = []
+    $(".thought-box").each ->
+      clientOrder.push @id.split("-")[2]
+      
+    return clientOrder
+      
+  window.correctFirstOutOfOrderThought = (clientOrder, serverOrder) ->
+    index = 0
+    index++  while index < clientOrder.length and clientOrder[index] is serverOrder[index]
+    
+    if index < clientOrder.length
+      shiftThought($("#thought-box-" + serverOrder[index]).index(), index) 
     
   $(document).ready ->
     $('#thought-list').sortable({

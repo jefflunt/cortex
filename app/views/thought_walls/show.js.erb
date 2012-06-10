@@ -18,25 +18,14 @@ if ($('#safe-to-alter-layout').html() === "true") {
     }
   <% end %>
   
-  var clientOrder;
-  clientOrder = [];
-  $(".thought-box").each(function(){ clientOrder.push(this.id.split("-")[2]); });
+  clientOrder = getClientThoughtBoxOrder();
   
-  var serverUIOrder;
   serverOrder = [];
   <% @thought_wall.thoughts.ui_order.each do |t| %>
     serverOrder.push('<%= t.id %>');
   <% end %>
-    
-  var index;
-  index = 0;
-  while (index < clientOrder.length && clientOrder[index] === serverOrder[index]) {
-    index++;
-  }
   
-  if (index < clientOrder.length) {
-    shiftThought($('#thought-box-'+serverOrder[index]).index(), index);
-  }
+  correctFirstOutOfOrderThought(clientOrder, serverOrder);  
   removeDuplicateIdsAmong('.thought-box');
 }
 
