@@ -24,3 +24,16 @@ window.removeDuplicateIdsAmong = (selector) ->
       
     $('.duplicate').remove()
   )
+
+window.indexOfMaxPositiveValue = (values) ->
+  highestValue = -1
+  highestValueIndex = -1
+  
+  i = 0
+  while i < values.length
+    if values[i] > highestValue
+      highestValue = values[i]
+      highestValueIndex = i
+    i++
+      
+  return highestValueIndex

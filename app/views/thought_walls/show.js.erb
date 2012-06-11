@@ -25,7 +25,7 @@ if ($('#safe-to-alter-layout').html() === "true") {
     serverOrder.push('<%= t.id %>');
   <% end %>
   
-  correctFirstOutOfOrderThought(clientOrder, serverOrder);  
+  correctFurthestOutOfOrderThought(clientOrder, serverOrder);  
   removeDuplicateIdsAmong('.thought-box');
 }
 

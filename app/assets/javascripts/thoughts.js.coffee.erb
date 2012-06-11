@@ -31,7 +31,33 @@ $ ->
     index++  while index < clientOrder.length and clientOrder[index] is serverOrder[index]
     
     if index < clientOrder.length
-      shiftThought($("#thought-box-" + serverOrder[index]).index(), index) 
+      shiftThought($("#thought-box-" + serverOrder[index]).index(), index)
+  
+  window.correctFurthestOutOfOrderThought = (clientOrder, serverOrder) ->
+    distances = []
+    
+    i = 0
+    while i < clientOrder.length
+      if (clientOrder[i] is serverOrder[i])
+        distances.push(0)
+      else
+        distances.push(findDistanceBetweenClientAndServerOrders(i, clientOrder[i], serverOrder))
+      i++
+    
+    fromIndex = indexOfMaxPositiveValue(distances)
+    unless fromIndex is -1
+      toIndex = serverOrder.indexOf(clientOrder[fromIndex])
+      shiftThought($("#thought-box-" + clientOrder[fromIndex]).index(), toIndex)
+    
+  
+  window.findDistanceBetweenClientAndServerOrders = (clientIndex, entryInQuestion, serverOrder) ->
+    index = 0
+    index++ while index < serverOrder.length && serverOrder[index] != entryInQuestion
+  
+    if (index is serverOrder.length)
+      return -1
+    else
+      return Math.abs(clientIndex - index)
     
   $(document).ready ->
     $('#thought-list').sortable({
