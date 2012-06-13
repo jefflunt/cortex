@@ -1,0 +1,105 @@
+@import "variables"
+
+body.theme-dark
+  color: $dark-theme-light-grey
+  font-family: $font-dark
+  background-color: $dark-theme-dark-grey
+  background-image: url('brain-dark.jpg')
+  background-position: top center
+  background-repeat: no-repeat
+  
+  a
+    color: $dark-theme-color-links
+    &:hover
+      color: $dark-theme-color-links-hover
+
+  #nav-bar
+    #nav-links
+    #recent-thought-walls
+      border: solid 1px $dark-theme-light-grey
+      background-color: $dark-theme-dark-grey
+
+  #content
+
+  #overlay
+    background-color: $dark-theme-dark-grey
+  #overlay-close
+    background-color: $dark-theme-dark-grey
+    border-color: $dark-theme-light-grey
+  #overlay-content
+
+  .collaboration-div
+  .thought-box-overlay-background
+    background-color: $dark-theme-dark-grey
+  .thought-box-overlay
+  .thought-overlay
+  .thought-box
+    border: 1px solid $dark-theme-medium-grey
+  .thought
+  .thought-bottom-section-standard
+    background-color: black
+  .thought-top-section-overlay
+    background-color: black
+  .thought-controls
+  .thought-controls-overlay
+  .thought-votes-overlay
+  .thought-votes
+  .thought-histories-box
+    border: 1px solid #ebebeb
+    background-color: black
+  .thought-history-entry
+    border: 1px solid $dark-theme-medium-grey
+  .thought-history-text
+    @extend .thought
+    margin-top: 0px
+  .thought-history-controls
+    @extend .thought-controls
+  .thought-history-bottom-section
+    background-color: black
+  
+  #thought-wall-form
+  #update_thought_wall_spinner
+  #thought-form
+    @extend .thought-box
+  .new-thought-box
+  #thought-new-remaining-characters
+
+  .positive
+    background: rgba(128, 255, 128, 0.1)
+  .neutral
+  .negative
+    background: rgba(130, 32, 32, 0.2)
+  
+  input
+    color: $dark-theme-light-grey
+    background-color: $dark-theme-dark-grey
+  #thought-form textarea
+    @extend input
+    background-color: $dark-theme-dim-grey
+    font-family: $font-dark
+    width: 210px
+    height: 225px
+    overflow: auto
+    resize: none
+  #thought-edit textarea
+    @extend input
+    background-color: $dark-theme-dim-grey
+    font-family: $font-dark
+    width: 210px
+    height: 95px
+  #thought-edit-overlay
+    height: 100%
+  #thought-edit-overlay form
+    height: 100%
+  #thought-edit-overlay textarea
+    @extend input
+    background-color: $dark-theme-dim-grey
+    font-family: $font-dark
+    font-size: $size-medium
+    width: 95%
+    height: 85%
+  .thought-add-button
+    float: right
+  .title-entry
+    font-size: $size-big
+    width: 95%
