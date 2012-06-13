@@ -1,0 +1,111 @@
+@import "variables"
+
+body.theme-paper
+  color: $paper-theme-dark-grey
+  font-family: $font-paper-copy
+  background-color: $paper-theme-light-grey
+  background-image: url('brain-light.jpg')
+  background-position: top center
+  background-repeat: no-repeat
+  
+  a
+    color: $paper-theme-color-links
+    &:hover
+      color: $paper-theme-color-links-hover
+
+  #nav-bar
+    #nav-links
+    #recent-thought-walls
+      border: solid 1px $paper-theme-dark-grey
+      background-color: $paper-theme-light-grey
+
+  #content
+
+  #overlay
+    background-color: $paper-theme-light-grey
+  #overlay-close
+    background-color: $paper-theme-light-grey
+    border-color: $paper-theme-dark-grey
+  #overlay-content
+
+  .collaboration-div
+  .thought-box-overlay-background
+    background-color: $paper-theme-light-grey
+  .thought-box-overlay
+  .thought-overlay
+  .thought-box
+    border: 1px solid $paper-theme-dark-grey
+  .thought
+  .thought-bottom-section-standard
+    background-color: $paper-theme-yellowed
+  .thought-top-section-overlay
+    background-color: $paper-theme-yellowed
+  .thought-controls
+  .thought-controls-overlay
+  .thought-votes-overlay
+  .thought-votes
+  .thought-histories-box
+    border: 1px solid #1b1b1b
+    background-color: $paper-theme-yellowed
+  .thought-history-entry
+    border: 1px solid $paper-theme-dark-grey
+  .thought-history-text
+    @extend .thought
+    margin-top: 0px
+  .thought-history-controls
+    @extend .thought-controls
+  .thought-history-bottom-section
+    background-color: $paper-theme-yellowed
+  
+  #thought-wall-form
+  #update_thought_wall_spinner
+  #thought-form
+    @extend .thought-box
+    font-family: $font-paper-copy
+  .new-thought-box
+  #thought-new-remaining-characters
+
+  .positive
+    border: 1px double $paper-theme-dark-grey
+    background: rgba(209, 255, 11, 0.5)
+  .neutral
+    border: 1px dashed $paper-theme-dark-grey
+  .negative
+    border: 1px dotted $paper-theme-dark-grey
+    background: rgba(179, 66, 66, 0.5)
+  
+  input
+    border: 1px solid 
+    font-family: $font-paper-headline
+    color: $paper-theme-dark-grey
+    background-color: $paper-theme-light-grey
+  #thought-form textarea
+    @extend input
+    background-color: $paper-theme-mellow-grey
+    font-family: $font-paper-copy
+    width: 210px
+    height: 225px
+    overflow: auto
+    resize: none
+  #thought-edit textarea
+    @extend input
+    background-color: $paper-theme-mellow-grey
+    font-family: $font-paper-copy
+    width: 210px
+    height: 95px
+  #thought-edit-overlay
+    height: 100%
+  #thought-edit-overlay form
+    height: 100%
+  #thought-edit-overlay textarea
+    @extend input
+    background-color: $paper-theme-mellow-grey
+    font-family: $font-paper-copy
+    font-size: $size-medium
+    width: 95%
+    height: 85%
+  .thought-add-button
+    float: right
+  .title-entry
+    font-size: $size-big
+    width: 95%
