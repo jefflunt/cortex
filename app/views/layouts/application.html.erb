@@ -13,7 +13,7 @@
   <div id="thought-wall-code" class="hidden"><%= @thought_wall.code if defined?(@thought_wall) %></div>
   <div id="safe-to-alter-layout" class="hidden">true</div>
   
-  <%= render :partial => 'navigation/nav_bar' %>
+  <%= render :partial => 'controls/control_bar' %>
   <div id="content">
     <%= yield %>
   </div>
