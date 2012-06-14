@@ -1,92 +1,93 @@
 @import "variables"
 
-body.theme-paper
-  color: $paper-theme-dark-grey
-  font-family: $font-paper-copy
-  background-color: $paper-theme-light-grey
-  background-image: url('paper-background.jpg')
+body.theme-canvas
+  color: $canvas-theme-dark-brown
+  font-family: $font-canvas-copy
+  background-color: $canvas-theme-pale-grey
+  background-image: url('canvas-background.jpg')
 
-  
   a
-    color: $paper-theme-color-links
+    color: $canvas-theme-color-links
     &:hover
-      color: $paper-theme-color-links-hover
+      color: $canvas-theme-color-links-hover
 
   #nav-bar
     #nav-links
     #recent-thought-walls
-      border: solid 1px $paper-theme-dark-grey
-      background-color: $paper-theme-light-grey
+      border: solid 1px $canvas-theme-dark-brown
+      background-color: $canvas-theme-light-brown
 
   #content
 
   #overlay
-    background-color: $paper-theme-light-grey
+    background-color: $canvas-theme-light-brown
   #overlay-close
-    background-color: $paper-theme-light-grey
-    border-color: $paper-theme-dark-grey
+    background-color: $canvas-theme-light-brown
+    border-color: $canvas-theme-dark-brown
   #overlay-content
 
   .collaboration-div
   .thought-box-overlay-background
-    background-color: $paper-theme-light-grey
+    background-color: $canvas-theme-light-brown
   .thought-box-overlay
   .thought-overlay
   .thought-box
-    border: 1px solid $paper-theme-dark-grey
+    border: 1px solid $canvas-theme-dark-brown
   .thought
   .thought-bottom-section-standard
-    background-color: $paper-theme-yellowed
+    background: rgba(207, 209, 209, 0.85)
   .thought-top-section-overlay
-    background-color: $paper-theme-yellowed
+    background-color: $canvas-theme-pale-grey
   .thought-controls
   .thought-controls-overlay
   .thought-votes-overlay
   .thought-votes
   .thought-histories-box
     border: 1px solid #1b1b1b
-    background-color: $paper-theme-yellowed
+    background-color: $canvas-theme-pale-grey
   .thought-history-entry
-    border: 1px solid $paper-theme-dark-grey
+    border: 1px solid $canvas-theme-dark-brown
   .thought-history-text
     @extend .thought
     margin-top: 0px
   .thought-history-controls
     @extend .thought-controls
   .thought-history-bottom-section
-    background-color: $paper-theme-yellowed
+    background: rgba(207, 209, 209, 0.85)
   
   #thought-wall-form
   #update_thought_wall_spinner
   #thought-form
     @extend .thought-box
-    font-family: $font-paper-copy
+    font-family: $font-canvas-copy
   .new-thought-box
   #thought-new-remaining-characters
 
   .positive
-    background: rgba(155, 255, 48, 0.5)
+    background: rgba(100, 153, 86, 0.5)
   .neutral
   .negative
-    background: rgba(0, 180, 255, 0.6)
+    background: rgba(90, 20, 20, 0.8)
+    .thought
+      color: $canvas-theme-light-brown
   
   input
     border: 1px solid
-    font-family: $font-paper-headline
-    color: $paper-theme-dark-grey
-    background-color: $paper-theme-light-grey
+    font-family: $font-canvas-headline
+    color: $canvas-theme-dark-brown
+    background-color: $canvas-theme-pale-grey
   #thought-form textarea
     @extend input
-    background-color: $paper-theme-mellow-grey
-    font-family: $font-paper-copy
+    background-color: $canvas-theme-pale-grey
+    font-family: $font-canvas-copy
     width: 210px
     height: 225px
     overflow: auto
     resize: none
   #thought-edit textarea
     @extend input
-    background-color: $paper-theme-mellow-grey
-    font-family: $font-paper-copy
+    background-color: $canvas-theme-pale-grey
+    font-family: $font-canvas-copy
     width: 210px
     height: 95px
   #thought-edit-overlay
@@ -95,8 +96,8 @@ body.theme-paper
     height: 100%
   #thought-edit-overlay textarea
     @extend input
-    background-color: $paper-theme-mellow-grey
-    font-family: $font-paper-copy
+    background-color: $canvas-theme-pale-grey
+    font-family: $font-canvas-copy
     font-size: $size-medium
     width: 95%
     height: 85%
