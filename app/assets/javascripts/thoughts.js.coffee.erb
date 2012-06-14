@@ -58,8 +58,21 @@ $ ->
       return -1
     else
       return Math.abs(clientIndex - index)
+
+  makeSureLocalStorageHasAtLeastDefaultValues = () ->
+    if !localStorage["recentThoughtWallCodes"]
+      localStorage["recentThoughtWallCodes"] = ""
+    if !localStorage["preferredTheme"]
+      localStorage["preferredTheme"] = "theme-canvas"
     
   $(document).ready ->
+    if (supportsHtml5Storage())
+      makeSureLocalStorageHasAtLeastDefaultValues()
+      $('body').addClass(localStorage["preferredTheme"])
+    else
+      $('body').addClass('theme-canvas')
+      
+  
     $('#thought-list').sortable({
       start: (event, ui) ->
         $('#safe-to-alter-layout').html('false')
@@ -73,3 +86,5 @@ $ ->
         })
         $('#safe-to-alter-layout').html('true')
     })
+    
+    

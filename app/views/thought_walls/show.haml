@@ -1,4 +1,5 @@
 -content_for :title, "#{@thought_wall.title}"
+-content_for :styling, @thought_wall.custom_layout || default_thought_wall_layout
 
 =render :partial => "collaboration_link"
 #thought-wall-form

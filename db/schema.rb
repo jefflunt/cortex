@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120610152917) do
+ActiveRecord::Schema.define(:version => 20120614140237) do
 
   create_table "stats", :force => true do |t|
     t.string  "group"
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(:version => 20120610152917) do
   create_table "thought_walls", :force => true do |t|
     t.string   "code"
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "custom_layout"
   end
 
   add_index "thought_walls", ["code"], :name => "index_thought_walls_on_code", :unique => true

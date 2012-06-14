@@ -43,8 +43,6 @@ $ ->
 
   window.addThoughtWallCodeToRecentList = (code, title) ->
     if supportsHtml5Storage()
-      makeSureRecentStorageIsInitialized()
-      
       if notAlreadyInRecentList(code)
         addNewRecentEntry(code, title)
       
@@ -52,10 +50,6 @@ $ ->
       
   window.updateRecentCodeTitle = (code, title) ->
     localStorage[code+".title"] = title
-
-  makeSureRecentStorageIsInitialized = ->
-    if !localStorage["recentThoughtWallCodes"]
-      localStorage["recentThoughtWallCodes"] = ""
 
   notAlreadyInRecentList = (code) ->
     if supportsHtml5Storage()
