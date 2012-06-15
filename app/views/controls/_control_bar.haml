@@ -1,6 +1,9 @@
 #control-bar
-  #control-links
+  #controls-left
     =link_to "recent lists", "javascript:;", id: "recent-thought-walls-link"
     |
     =link_to "new brainstorm", "/"
+  #controls-right
+    =link_to ".CSV", export_thought_wall_path(@thought_wall.code, format: "csv")
+  
   #recent-thought-walls

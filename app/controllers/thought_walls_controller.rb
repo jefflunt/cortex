@@ -1,5 +1,15 @@
+require 'csv'
+
 class ThoughtWallsController < ApplicationController
     
+  def export
+    @thought_wall = ThoughtWall.find_by_code(params[:id])
+    
+    respond_to do |format|
+      format.csv  {render layout: false}
+    end
+  end
+  
   def show
     @render_timestamp = Time.now.utc.to_i
     
