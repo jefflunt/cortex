@@ -1,6 +1,6 @@
 $ ->
   $(document).click (event) ->
-    hideRecentListIfNecessary()
+    hideRecentListIfNecessary(event)
     hideThoughtHistoriesIfNecessary(event)
 
   $(document).keyup (event) ->
@@ -22,10 +22,10 @@ $ ->
       , 100, ->
         overlayDiv.hide()
       
-  hideRecentListIfNecessary = ->
+  hideRecentListIfNecessary = (event) ->
     if recentThoughtWallsDiv.css('opacity') is "1"
       toggleVisibilityOfRecentThoughtWallsDiv()
-    if shareLinkDiv.css('opacity') is "1"
+    if shareLinkDiv.css('opacity') is "1" and event.target.id != 'share-link-text'
       toggleVisibilityOfShareLinkDiv()
   
   hideThoughtHistoriesIfNecessary = (event) ->
