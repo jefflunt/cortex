@@ -2,6 +2,10 @@
   #controls-left
     =link_to "new", "/", class: "control-left"
     =link_to "recent", "javascript:;", id: "recent-thought-walls-link", class: "control-right"
-    #recent-thought-walls
   #controls-right
-    =link_to ".CSV", export_thought_wall_path(@thought_wall.code, format: "csv"), class: "control-standalone"
+    =link_to ".csv", export_thought_wall_path(@thought_wall.code, format: "csv"), class: "control-left"
+    =link_to "share", "javascript:;", id: "share-link-control", class: "control-right"
+
+#recent-thought-walls
+#share-link
+  =url_field_tag 'share-link-text', thought_wall_url(@thought_wall.code), size: thought_wall_url(@thought_wall).length + 8

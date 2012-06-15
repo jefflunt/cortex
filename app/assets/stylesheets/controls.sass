@@ -1,20 +1,12 @@
 @import "variables"
 
-.control-middle
-  padding: 5px 10px 5px 10px
-  box-shadow: #676767 0px 2px 2px 0px
-  border-width: 1px
-  border-style: solid
-  border-color: #000
-.control-left
-  @extend .control-middle
-  border-radius: 14px 0px 0px 14px
-.control-right
-  @extend .control-middle
-  border-radius: 0px 14px 14px 0px
-.control-standalone
-  @extend .control-middle
-  border-radius: 14px 14px 14px 14px
+.control-menu
+  font-family: Arial
+  font-size: 12px
+  a
+    color: $color-light-grey
+    &:hover
+      color: $color-light-medium-grey
 
 #control-bar
   font-family: Arial
@@ -28,7 +20,7 @@
   margin-right: -16px
   background-color: $dark-theme-medium-grey
   color: $color-light-grey
-
+  z-index: $layer-controls
   a
     color: $color-light-grey
     &:hover
@@ -41,13 +33,46 @@
     position: absolute
     top: 13px
     right: 10px
-  #recent-thought-walls
+  .control-middle
+    padding: 5px 10px 5px 10px
+    box-shadow: #676767 0px 2px 2px 0px
+    border-width: 1px
+    border-style: solid
+    border-color: #000
+  .control-left
     @extend .control-middle
-    border-radius: 0px 0px 7px 7px
-    border-width: 0px 1px 1px 1px
-    background-color: $dark-theme-medium-grey
-    opacity: 0.0
-    position: relative
-    top: 14px
-    padding: 10px
-    z-index: $layer-menu
+    border-radius: 14px 0px 0px 14px
+  .control-right
+    @extend .control-middle
+    border-radius: 0px 14px 14px 0px
+  .control-standalone
+    @extend .control-middle
+    border-radius: 14px 14px 14px 14px
+  
+
+#recent-thought-walls
+  @extend .control-middle
+  @extend .control-menu
+  border-radius: 0px 0px 7px 7px
+  border-width: 0px 1px 1px 1px
+  background-color: $dark-theme-medium-grey
+  opacity: 0.0
+  position: absolute
+  top: 33px
+  padding: 10px
+  z-index: $layer-menu
+#share-link
+  @extend .control-middle
+  @extend .control-menu
+  border-radius: 0px 0px 7px 7px
+  border-width: 0px 1px 1px 1px
+  background-color: $dark-theme-medium-grey
+
+  position: absolute
+  top: 33px
+  right: 0px
+  padding: 7px
+  z-index: $layer-menu
+  input
+    font-family: Arial
+    font-size: 12px

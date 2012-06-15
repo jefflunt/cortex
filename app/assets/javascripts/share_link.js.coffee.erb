@@ -1,0 +1,9 @@
+$ ->
+  window.toggleVisibilityOfShareLinkDiv = ->
+    if (shareLinkDiv.css('opacity') is "1")
+      shareLinkDiv.animate({opacity: 0.0}, 100, ->
+        shareLinkDiv.hide())
+    else
+      shareLinkDiv.show()
+      shareLinkDiv.animate({opacity: 1.0}, 100)
+  
