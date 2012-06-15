@@ -19,6 +19,8 @@
 #control-bar
   font-family: Arial
   font-size: 12px
+  border-bottom: 1px solid #000
+  box-shadow: #101010 3px 3px 7px 0px
   position: relative
   top: -8px
   left: -8px
@@ -26,23 +28,26 @@
   margin-right: -16px
   background-color: $dark-theme-medium-grey
   color: $color-light-grey
+
   a
     color: $color-light-grey
     &:hover
       color: $color-light-medium-grey
   #controls-left
     position: absolute
-    top: 12px
+    top: 13px
     left: 10px
   #controls-right
     position: absolute
-    top: 12px
+    top: 13px
     right: 10px
   #recent-thought-walls
-    background-color: $dark-theme-dark-grey
+    @extend .control-middle
+    border-radius: 0px 0px 7px 7px
+    border-width: 0px 1px 1px 1px
+    background-color: $dark-theme-medium-grey
     opacity: 0.0
-    position: absolute
-    left: 20px
-    top: 25px
+    position: relative
+    top: 14px
     padding: 10px
     z-index: $layer-menu
