@@ -1,12 +1,30 @@
 @import "variables"
 
+.control-middle
+  padding: 5px 10px 5px 10px
+  box-shadow: #676767 0px 2px 2px 0px
+  border-width: 1px
+  border-style: solid
+  border-color: #000
+.control-left
+  @extend .control-middle
+  border-radius: 7px 0px 0px 7px
+.control-right
+  @extend .control-middle
+  border-radius: 0px 7px 7px 0px
+.control-standalone
+  @extend .control-middle
+  border-radius: 7px 7px 7px 7px
+
 #control-bar
+  font-family: Arial
+  font-size: 12px
   position: relative
   top: -8px
   left: -8px
-  height: 30px
+  height: 40px
   margin-right: -16px
-  background-color: $dark-theme-dark-grey
+  background-color: $dark-theme-medium-grey
   color: $color-light-grey
   a
     color: $color-light-grey
@@ -14,12 +32,12 @@
       color: $color-light-medium-grey
   #controls-left
     position: absolute
-    top: 5px
-    left: 20px
+    top: 12px
+    left: 10px
   #controls-right
     position: absolute
-    top: 5px
-    right: 20px
+    top: 12px
+    right: 10px
   #recent-thought-walls
     background-color: $dark-theme-dark-grey
     opacity: 0.0

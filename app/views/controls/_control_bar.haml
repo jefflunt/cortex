@@ -1,9 +1,8 @@
 #control-bar
   #controls-left
-    =link_to "recent lists", "javascript:;", id: "recent-thought-walls-link"
-    |
-    =link_to "new brainstorm", "/"
+    =link_to "new", "/", class: "control-left"
+    =link_to "something", "#", class: "control-middle"
+    =link_to "recent", "javascript:;", id: "recent-thought-walls-link", class: "control-right"
+    #recent-thought-walls
   #controls-right
-    =link_to ".CSV", export_thought_wall_path(@thought_wall.code, format: "csv")
-  
-  #recent-thought-walls
+    =link_to ".CSV", export_thought_wall_path(@thought_wall.code, format: "csv"), class: "control-standalone"
