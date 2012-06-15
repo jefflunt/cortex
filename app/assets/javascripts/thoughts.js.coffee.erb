@@ -2,6 +2,8 @@ $ ->
   recentThoughtWallsLink.click (event) ->
     toggleVisibilityOfRecentThoughtWallsDiv()
     updateRecentThoughtWallsDiv()
+  shareLinkControl.click (event) ->
+    toggleVisibilityOfShareLinkDiv()
   focusOnNewThoughtText()
   
   $("body").delegate ".thought-history-link", "click", (event) ->

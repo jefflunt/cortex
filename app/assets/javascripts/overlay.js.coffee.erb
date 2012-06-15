@@ -25,6 +25,8 @@ $ ->
   hideRecentListIfNecessary = ->
     if recentThoughtWallsDiv.css('opacity') is "1"
       toggleVisibilityOfRecentThoughtWallsDiv()
+    if shareLinkDiv.css('opacity') is "1"
+      toggleVisibilityOfShareLinkDiv()
   
   hideThoughtHistoriesIfNecessary = (event) ->
     classOfTargetElement = event.target.getAttribute("class")
