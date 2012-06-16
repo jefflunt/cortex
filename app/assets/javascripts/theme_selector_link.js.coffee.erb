@@ -11,5 +11,5 @@ $ ->
     $('.theme-selector').click () ->
       if supportsHtml5Storage()
         localStorage['preferredTheme'] = $(this)[0].id
-        $('body')[0].className.replace(/theme-.+/g, "")
+        $('body')[0].className = $('body')[0].className.replace(/theme-.+/g, '')
         $('body').addClass(localStorage['preferredTheme'])
