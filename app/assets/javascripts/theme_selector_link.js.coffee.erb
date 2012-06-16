@@ -8,8 +8,12 @@ $ ->
       themeSelectorDiv.animate({opacity: 1.0}, 100)
 
   $(document).ready ->
+    if supportsHtml5Storage()
+      $('#theme-current-preview')[0].src = '/assets/themes/' + localStorage['preferredTheme'] + '-preview.png'
+      
     $('.theme-selector').click () ->
       if supportsHtml5Storage()
         localStorage['preferredTheme'] = $(this)[0].id
         $('body')[0].className = $('body')[0].className.replace(/theme-.+/g, '')
         $('body').addClass(localStorage['preferredTheme'])
+        $('#theme-current-preview')[0].src = '/assets/themes/' + localStorage['preferredTheme'] + '-preview.png'

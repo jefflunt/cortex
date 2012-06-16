@@ -3,8 +3,8 @@
     =link_to "new", "/", class: "control-left"
     =link_to "recent", "javascript:;", id: "recent-thought-walls-link", class: "control-right"
   #controls-right
-    %span{class: 'control-left'}="theme"
-    =link_to "\u25be", "javascript:;", id: "theme-selector-control", class: "control-right"
+    %img#theme-current-preview{src: ''}
+    =link_to "\u25be", "javascript:;", class: "control-right", id: "theme-selector-control"
     =link_to ".csv", export_thought_wall_path(@thought_wall.code, format: "csv"), class: "control-left"
     =link_to "share", "javascript:;", id: "share-link-control", class: "control-right"
 
