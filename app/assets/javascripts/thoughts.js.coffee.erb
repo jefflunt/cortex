@@ -4,6 +4,8 @@ $ ->
     updateRecentThoughtWallsDiv()
   shareLinkControl.click (event) ->
     toggleVisibilityOfShareLinkDiv()
+  themeSelectorLink.click (event) ->
+    toggleVisibilityOfThemeSelectorDiv(event)
   focusOnNewThoughtText()
   
   $("body").delegate ".thought-history-link", "click", (event) ->
@@ -73,8 +75,7 @@ $ ->
       $('body').addClass(localStorage["preferredTheme"])
     else
       $('body').addClass('theme-canvas')
-      
-  
+        
     $('#thought-list').sortable({
       start: (event, ui) ->
         $('#safe-to-alter-layout').html('false')

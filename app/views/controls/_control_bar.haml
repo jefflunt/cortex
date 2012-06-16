@@ -3,9 +3,13 @@
     =link_to "new", "/", class: "control-left"
     =link_to "recent", "javascript:;", id: "recent-thought-walls-link", class: "control-right"
   #controls-right
+    %span{class: 'control-left'}="theme"
+    =link_to "\u25be", "javascript:;", id: "theme-selector-control", class: "control-right"
     =link_to ".csv", export_thought_wall_path(@thought_wall.code, format: "csv"), class: "control-left"
     =link_to "share", "javascript:;", id: "share-link-control", class: "control-right"
 
 #recent-thought-walls
+#theme-selector
+  =render partial: "controls/theme_selector"
 #share-link
-  =url_field_tag 'share-link-text', thought_wall_url(@thought_wall.code), size: thought_wall_url(@thought_wall).length + 8
+  =url_field_tag 'share-link-text', thought_wall_url(@thought_wall.code), size: thought_wall_url(@thought_wall).length + 12

@@ -1,6 +1,8 @@
 $ ->
   $(document).click (event) ->
     hideRecentListIfNecessary(event)
+    hideShareLinkIfNecessary(event)
+    hideThemeSelectorIfNecessary(event)
     hideThoughtHistoriesIfNecessary(event)
 
   $(document).keyup (event) ->
@@ -25,8 +27,14 @@ $ ->
   hideRecentListIfNecessary = (event) ->
     if recentThoughtWallsDiv.css('opacity') is "1"
       toggleVisibilityOfRecentThoughtWallsDiv()
+  
+  hideShareLinkIfNecessary = (event) ->
     if shareLinkDiv.css('opacity') is "1" and event.target.id != 'share-link-text'
       toggleVisibilityOfShareLinkDiv()
+  
+  hideThemeSelectorIfNecessary = (event) ->
+    if themeSelectorDiv.css('opacity') is "1" and event.target.id != 'share-link-text'
+      toggleVisibilityOfThemeSelectorDiv()
   
   hideThoughtHistoriesIfNecessary = (event) ->
     classOfTargetElement = event.target.getAttribute("class")
