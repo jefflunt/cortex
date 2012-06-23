@@ -12,6 +12,13 @@
 #star-options
   -if current_user
     =link_to "logout", '/signout'
+    %hr
+    -if current_user.thought_walls.count > 0
+      -current_user.thought_walls.each do |tw|
+        %br
+        =link_to "\u2605 #{tw.title}", thought_wall_path(tw.code)
+    -else
+      ="Nothing starred yet"
   -else
     login with
     %table
