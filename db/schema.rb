@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120623144059) do
+ActiveRecord::Schema.define(:version => 20120623182409) do
 
   create_table "stats", :force => true do |t|
     t.string  "group"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(:version => 20120623144059) do
   end
 
   add_index "thought_walls", ["code"], :name => "index_thought_walls_on_code", :unique => true
+
+  create_table "thought_walls_users", :id => false, :force => true do |t|
+    t.integer "thought_wall_id"
+    t.integer "user_id"
+  end
+
+  add_index "thought_walls_users", ["thought_wall_id", "user_id"], :name => "index_thought_walls_users_on_thought_wall_id_and_user_id"
+  add_index "thought_walls_users", ["user_id", "thought_wall_id"], :name => "index_thought_walls_users_on_user_id_and_thought_wall_id"
 
   create_table "thoughts", :force => true do |t|
     t.integer  "thought_wall_id"
