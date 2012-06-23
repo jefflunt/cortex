@@ -17,6 +17,9 @@ $ ->
   window.shareLinkControl = $('#share-link-control')
   window.shareLinkDiv = $('#share-link')
   
+  window.starControl = $('#star-control')
+  window.starDiv = $('#star-options')
+  
   window.thoughtHistoriesLinks = $(".thought-history-link")
   window.thoughtHistoryBoxes = $(".thought-histories-box")
 
@@ -58,7 +61,15 @@ $ ->
     $.get(document.URL+".js?since="+getRenderTimestamp()+"&next_refresh="+getCurrThoughtWallRefreshDelay()).error( -> 
       delayAction(ajaxRefreshPage, requestFailRetryDelay)
     )
+    
+  window.makeSureLocalStorageHasAtLeastDefaultValues = () ->
+    if !localStorage["recentThoughtWallCodes"]
+      localStorage["recentThoughtWallCodes"] = ""
+    if !localStorage["preferredTheme"]
+      localStorage["preferredTheme"] = "theme-canvas"
 
   $(document).ready ->
-    addThoughtWallCodeToRecentList($('#thought-wall-code').html(), $('title').html())
+    if (supportsHtml5Storage())
+      makeSureLocalStorageHasAtLeastDefaultValues()
+      addThoughtWallCodeToRecentList($('#thought-wall-code').html(), $('title').html())
     delayAction(ajaxRefreshPage, minThoughtWallRefreshDelay)

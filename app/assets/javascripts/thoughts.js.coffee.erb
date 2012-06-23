@@ -62,12 +62,6 @@ $ ->
       return -1
     else
       return Math.abs(clientIndex - index)
-
-  makeSureLocalStorageHasAtLeastDefaultValues = () ->
-    if !localStorage["recentThoughtWallCodes"]
-      localStorage["recentThoughtWallCodes"] = ""
-    if !localStorage["preferredTheme"]
-      localStorage["preferredTheme"] = "theme-canvas"
     
   $(document).ready ->
     if (supportsHtml5Storage())

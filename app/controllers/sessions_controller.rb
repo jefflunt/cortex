@@ -7,22 +7,16 @@ class SessionsController < ApplicationController
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
     
-    
-    if cookies[:page_i_was_on].nil?
-      redirect_to root_url
-    else
-      redirect_to cookies[:page_i_was_on]
-      cookies.delete :page_i_was_on
-    end
+    redirect_to_page_i_was_on_or_root
   end
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "Signed out."
-    redirect_to root_url, :notice => "Signed out."
+    Rails.logger.info "Redirecting..."
+    redirect_to_page_i_was_on_or_root
   end
   
   def failure
-    redirect_to root_url
+    redirect_to_page_i_was_on_or_root
   end
 end

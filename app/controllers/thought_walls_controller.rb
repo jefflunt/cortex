@@ -13,7 +13,6 @@ class ThoughtWallsController < ApplicationController
   
   def show
     @render_timestamp = Time.now.utc.to_i
-    session[:page_i_was_on] = request.fullpath
     
     if params[:since]
       @last_render_at = Time.at(params[:since].to_i).utc
@@ -30,6 +29,8 @@ class ThoughtWallsController < ApplicationController
       @thought_wall = ThoughtWall.find_by_code(params[:id], :include => :thoughts)
       @next_refresh = get_next_refresh(0, true)
     end
+    
+    cookies[:page_i_was_on] = @thought_wall.code
     
     respond_to do |format|
       format.html
