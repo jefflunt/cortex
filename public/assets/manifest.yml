@@ -1,12 +1,16 @@
 ---
+login_buttons/facebook_32.png: login_buttons/facebook_32-56cd78cb046f8c110edbea8580a52c39.png
+login_buttons/github_32.png: login_buttons/github_32-5d8085022a283d852fbdf5cd95d0173f.png
+login_buttons/google_oauth2_32.png: login_buttons/google_oauth2_32-31dd8ed4ed8218ffb86813de859f1825.png
+login_buttons/twitter_32.png: login_buttons/twitter_32-d5ad07c40b2b038c8c99917c720060ed.png
 spinner.gif: spinner-6aa1008d858cbed1cd320422f59a4789.gif
 themes/brain-light.jpg: themes/brain-light-561b24be085e75f3378e031c64251277.jpg
 themes/canvas-background.jpg: themes/canvas-background-aad11bb019d6f0cb7eb66bd605e4f117.jpg
 themes/dark-background.jpg: themes/dark-background-034dd1edd61771fce859d556be61a491.jpg
 themes/theme-canvas-preview.png: themes/theme-canvas-preview-ed5ef475365f5a5530ecf536ef23c123.png
 themes/theme-dark-preview.png: themes/theme-dark-preview-e58eb8c823a2e9bd0e086ecc2d9dde0e.png
-application.js: application-678e26e9e53e4524d946752f1568a160.js
+application.js: application-f90f7d3b02ab6c614565da6376f3313f.js
 Andada.ttf: Andada-23ee565da593dcb3b691292a02ed4a0b.ttf
 PTM55FT.ttf: PTM55FT-7515d9db13e596569dc717ef3606ce98.ttf
 Trocchi.ttf: Trocchi-2b56cf175ea7cf55a93a25362d640174.ttf
-application.css: application-d8d69e8d2de6394e92dfbdec213f3cdc.css
+application.css: application-43304f4a069b0c6244d808cf711101b8.css
