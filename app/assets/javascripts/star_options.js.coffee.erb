@@ -1,0 +1,8 @@
+$ ->
+  window.toggleVisibilityOfStarDiv = ->
+    if (starDiv.css('opacity') is "1")
+      starDiv.animate({opacity: 0.0}, 100, ->
+        starDiv.hide())
+    else
+      starDiv.show()
+      starDiv.animate({opacity: 1.0}, 100)

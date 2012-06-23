@@ -1,5 +1,6 @@
 $ ->
   $(document).click (event) ->
+    hideStarDivIfNecessary(event)
     hideRecentListIfNecessary(event)
     hideShareLinkIfNecessary(event)
     hideThemeSelectorIfNecessary(event)
@@ -35,6 +36,11 @@ $ ->
   hideThemeSelectorIfNecessary = (event) ->
     if themeSelectorDiv.css('opacity') is "1" and event.target.id != 'share-link-text'
       toggleVisibilityOfThemeSelectorDiv()
+      
+  hideStarDivIfNecessary = (event) ->
+    console.log 'Hey!'
+    if starDiv.css('opacity') is "1" and event.target.id != 'star-control'
+      toggleVisibilityOfStarDiv()
   
   hideThoughtHistoriesIfNecessary = (event) ->
     classOfTargetElement = event.target.getAttribute("class")
