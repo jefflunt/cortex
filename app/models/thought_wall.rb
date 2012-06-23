@@ -1,4 +1,5 @@
 class ThoughtWall < ActiveRecord::Base
+  has_and_belongs_to_many :users
   has_many :thoughts, :dependent => :destroy
   
   validates :code,  :uniqueness => true
