@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    Rails.logger.info "Redirecting..."
     redirect_to_page_i_was_on_or_root
   end
   

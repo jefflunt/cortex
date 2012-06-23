@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       
       case user.provider
-      when "google"
-        raise Exception(auth)
+      when "google_oauth2"
         user.provider = auth[:provider]
         user.uid = auth[:uid]
         user.name = auth[:info][:name]
