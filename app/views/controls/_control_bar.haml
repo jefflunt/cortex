@@ -1,8 +1,13 @@
 #control-bar
   #controls-left
-    =link_to "new", "/", class: "control-left"
-    =link_to "recent", "javascript:;", id: "recent-thought-walls-link", class: "control-right"
-    =link_to 'login google', '/auth/google_oauth2'
+    -if current_user
+      =link_to "\u2605", "javascript:;", class: "control-left"
+    -else
+      =link_to 'login', '/auth/google_oauth2', class: "control-left"
+    =link_to "recent", "javascript:;", id: "recent-thought-walls-link", class: "control-middle"
+    =link_to "new", "/", class: "control-right"
+    
+    
   #controls-right
     %img#theme-current-preview{src: ''}
     =link_to "\u25be", "javascript:;", class: "control-right", id: "theme-selector-control"
