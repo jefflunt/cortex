@@ -1,6 +1,7 @@
 require 'csv'
 
 class ThoughtWallsController < ApplicationController
+  skip_authorization_check
     
   def export
     @thought_wall = ThoughtWall.find_by_code(params[:id])
@@ -12,6 +13,7 @@ class ThoughtWallsController < ApplicationController
   
   def show
     @render_timestamp = Time.now.utc.to_i
+    session[:page_i_was_on] = request.fullpath
     
     if params[:since]
       @last_render_at = Time.at(params[:since].to_i).utc

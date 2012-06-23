@@ -1,4 +1,5 @@
 class ThoughtsController < ApplicationController
+  skip_authorization_check
   
   def show
     @thought = Thought.find(params[:id])

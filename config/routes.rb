@@ -9,4 +9,5 @@ Cortex::Application.routes.draw do
   
   match "/about" => "thought_walls#index"
   match "/:id" => "thought_walls#show"
+  match '/auth/:provider/callback', to: 'sessions#create'
 end

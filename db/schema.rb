@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120614140237) do
+ActiveRecord::Schema.define(:version => 20120623144059) do
 
   create_table "stats", :force => true do |t|
     t.string  "group"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(:version => 20120614140237) do
     t.integer  "down_votes",              :default => 0
     t.integer  "manual_order"
     t.datetime "manual_order_updated_at", :default => '2012-06-08 01:31:34'
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "nickname"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
