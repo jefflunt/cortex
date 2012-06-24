@@ -60,6 +60,12 @@ class ThoughtWallsController < ApplicationController
         @star_display = false
       end
     end
+    
+    if params[:thought_wall][:star_clicked] == "true"
+      @star_was_clicked = true
+    else
+      @star_was_clicked = false
+    end
   end
   
   private

@@ -13,5 +13,7 @@ setNextThoughtWallRefreshDelay(minThoughtWallRefreshDelay);
 delayAction(ajaxRefreshPage, minThoughtWallRefreshDelay);
 
 <% unless current_user %>
-  showStarDiv()
+  <% if @star_was_clicked %>
+    showStarDiv()
+  <% end %>
 <% end %>

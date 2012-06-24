@@ -17,6 +17,7 @@ $ ->
     $('#thought-new-remaining-characters').html('remaining: ' + (maxThoughtLength - $('#thought_text').val().length))
   
   starThoughtWallLink.click ->
+    $('#thought_wall_star_clicked').val('true')
     thoughtWallStarFormElement = $('#thought_wall_star')
     if (thoughtWallStarFormElement.val() == "true")
       thoughtWallStarFormElement.val("false")
@@ -24,6 +25,7 @@ $ ->
       thoughtWallStarFormElement.val("true")
       
     $('.edit_thought_wall').submit()
+    $('#thought_wall_star_clicked').val('false')
   
   thoughtWallTitleInput.keyup ->
     $("#update_thought_wall_spinner").show()
