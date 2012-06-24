@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :thought_walls
+  has_and_belongs_to_many :thought_walls, order: "lower(title) ASC"
   
   validates :uid, :uniqueness=>{:scope=>:provider}
         
