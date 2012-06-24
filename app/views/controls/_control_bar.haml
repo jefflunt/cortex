@@ -11,17 +11,17 @@
 
 #star-options
   -if current_user
-    =link_to "logout", '/signout'
-    %hr
+    =link_to "Logout", '/signout'
+
     -if current_user.thought_walls.count > 0
-      -current_user.thought_walls.each do |tw|
-        %span{id: "star-menu-item-#{tw.code}"}
-          %br
-          =link_to "\u2605 #{tw.title}", thought_wall_path(tw.code)
+      %ul
+        -current_user.thought_walls.each do |tw|
+          %li{id: "star-menu-item-#{tw.code}"}
+            =link_to "\u2605 #{tw.title}", thought_wall_path(tw.code)
     -else
       ="Nothing starred yet"
   -else
-    login with
+    Login with
     %table
       %tr
         %td
