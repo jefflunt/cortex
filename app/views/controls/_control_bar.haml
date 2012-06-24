@@ -15,8 +15,9 @@
     %hr
     -if current_user.thought_walls.count > 0
       -current_user.thought_walls.each do |tw|
-        %br
-        =link_to "\u2605 #{tw.title}", thought_wall_path(tw.code), id: "star-menu-item-#{tw.code}"
+        %span{id: "star-menu-item-#{tw.code}"}
+          %br
+          =link_to "\u2605 #{tw.title}", thought_wall_path(tw.code)
     -else
       ="Nothing starred yet"
   -else
