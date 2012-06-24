@@ -48,18 +48,18 @@ class ThoughtWallsController < ApplicationController
   end
   
   def update
-    @thought_wall = ThoughtWall.find(params[:id])
-    if current_user && params[:star].present?
-      if params[:star] == "true"
+    @thought_wall = ThoughtWall.find_by_code(params[:thought_wall][:code])
+    @thought_wall.update_attribute(:title, params[:thought_wall][:title])
+    
+    if current_user
+      if params[:thought_wall][:star] == "true"
         @thought_wall.users << current_user unless @thought_wall.users.include?(current_user)
+        @star_display = true
       else
         @thought_wall.users.delete(current_user)
+        @star_display = false
       end
-    elsif params[:star].nil?
-      @thought_wall.update_attribute(:title, params[:thought_wall][:title])
     end
-    
-    redirect_to thought_wall_path(@thought_wall.code)
   end
   
   private

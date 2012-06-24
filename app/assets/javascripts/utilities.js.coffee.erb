@@ -8,6 +8,9 @@ window.delayAction = (->
 window.supportsHtml5Storage = ->
   return !!window.localStorage
 
+window.updateStarDisplay = (newValue) ->
+  $('#star-thought-wall-link').text(newValue)
+
 window.updatePageTitle = (title) ->
   $('title').html(title)
   
