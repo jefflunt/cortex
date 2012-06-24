@@ -13,6 +13,10 @@ gem 'rails_autolink'
 gem 'cancan'
 gem 'omniauth'
 gem "omniauth-google-oauth2", "~> 0.1.10"
+gem "omniauth-facebook", "~> 1.4.0"
+gem "omniauth-twitter", "~> 0.0.12"
+gem "omniauth-github", "~> 1.0.1"
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

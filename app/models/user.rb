@@ -14,6 +14,17 @@ class User < ActiveRecord::Base
         user.uid = auth[:uid]
         user.name = auth[:info][:name]
         user.nickname = auth[:info][:nickname]
+      when "github"
+        user.name = auth["info"]["name"]
+        user.nickname = auth["info"]["nickname"]
+      when "facebook"
+        user.name = auth["info"]["name"]
+        user.nickname = auth["info"]["nickname"]
+      when "twitter"
+        user.provider = auth[:provider]
+        user.uid = auth[:uid]
+        user.name = auth[:info][:name]
+        user.nickname = auth[:info][:nickname]
       end
     end
   end

@@ -22,13 +22,20 @@
             -else
               =link_to "\u2605 #{tw.title}", thought_wall_path(tw.code)
     -else
-      ="Nothing starred yet"
+      %ul
+        %li="Nothing starred yet"
   -else
     Login with
     %table
       %tr
         %td
           =link_to image_tag("login_buttons/google_oauth2_32.png", title: 'Google', alt: 'Google'), '/auth/google_oauth2'
+        %td
+          =link_to image_tag("login_buttons/facebook_32.png", title: 'Facebook', alt: 'Facebook'), '/auth/facebook'
+        %td
+          =link_to image_tag("login_buttons/twitter_32.png", title: 'Twitter', alt: 'Twitter'), '/auth/twitter'
+        %td
+          =link_to image_tag("login_buttons/github_32.png", title: 'Github', alt: 'Github'), '/auth/github'
           
 #recent-thought-walls
 #theme-selector
