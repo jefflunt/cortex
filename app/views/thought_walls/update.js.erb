@@ -11,3 +11,7 @@ updatePageTitle('<%= @thought_wall.code %>', '<%= escape_javascript(@thought_wal
 
 setNextThoughtWallRefreshDelay(minThoughtWallRefreshDelay);
 delayAction(ajaxRefreshPage, minThoughtWallRefreshDelay);
+
+<% unless current_user %>
+  showStarDiv()
+<% end %>

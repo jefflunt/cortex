@@ -4,7 +4,7 @@
   -elsif current_user
     %span.star-toggle=link_to "\u2606", "javascript:;", id: "star-thought-wall-link"
   -else
-    %span.star-toggle=link_to "\u2606"
+    %span.star-toggle=link_to "\u2606", "javascript:;", id: "star-thought-wall-link"
   =f.text_field :title, :class => "title-entry"
   =f.hidden_field :code
   -if current_user
