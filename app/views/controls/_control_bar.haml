@@ -17,7 +17,10 @@
       %ul
         -current_user.thought_walls.each do |tw|
           %li{id: "star-menu-item-#{tw.code}"}
-            =link_to "\u2605 #{tw.title}", thought_wall_path(tw.code)
+            -if tw.title.strip == ""
+              =link_to "\u2605 (no title)", thought_wall_path(tw.code)
+            -else
+              =link_to "\u2605 #{tw.title}", thought_wall_path(tw.code)
     -else
       ="Nothing starred yet"
   -else

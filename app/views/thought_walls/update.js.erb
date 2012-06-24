@@ -2,9 +2,9 @@ $('#update_thought_wall_spinner').hide();
 updateRecentCodeTitle('<%= @thought_wall.code %>', '<%= escape_javascript(@thought_wall.title) %>')
 updateStarMenuTitle('<%= escape_javascript(@thought_wall.code) %>', '<%= escape_javascript(@thought_wall.title) %>')
 
-<% if @star_display %>
+<% if @star_display == true %>
   updateStarDisplay('<%= "\u2605" %>')
-  
+  alphabeticallyAddNewStarItem('<%= @thought_wall.code %>', '<%= @thought_wall.title %>')
 <% else %>
   updateStarDisplay('<%= "\u2606" %>')
   $('#star-menu-item-<%= @thought_wall.code %>').remove()

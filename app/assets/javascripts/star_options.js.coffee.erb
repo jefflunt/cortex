@@ -17,3 +17,19 @@ $ ->
   window.updateRecentCodeTitle = (code, title) ->
     localStorage[code+".title"] = title
   
+  window.alphabeticallyAddNewStarItem = (code, title) ->
+    $('#star-menu-item-'+code).remove()
+    
+    firstAfterNewItem = $('#star-options ul').children().filter( ->
+      $(this).text().split('\u2605')[1].trim().toLowerCase() > title.toLowerCase()
+    ).eq(0)
+    
+    if (title.trim() == '')
+      title = '(no title)'
+      
+    newElement = '<li id="star-menu-item-' + code + '">' + '<a href="/thought_walls/' + code + '">\u2605 ' + title + '</a></li>'
+
+    if (firstAfterNewItem.length > 0)
+      firstAfterNewItem.before(newElement)
+    else
+      $('#star-options ul').append(newElement)
