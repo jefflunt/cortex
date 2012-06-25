@@ -34,8 +34,10 @@ $ ->
     return index
   
   window.slideThoughtIn = (element, callback) ->
+    slideWidth = $('#thought-form').width()
+    console.log slideWidth
     element.animate({
-      width: 215}, 
+      width: slideWidth}, 
       500, 
       ->
         $(this).animate({opacity: 1.0}, 175, callback)

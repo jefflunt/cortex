@@ -1,0 +1,159 @@
+@import "variables"
+
+body.layout-2x
+  position: relative
+  
+  pre
+    font-size: $size-small
+  
+  a
+    text-decoration: none
+
+  #content
+    position: absolute
+    left: 20px
+    top: 60px
+    width: 98%
+    height: 300px
+    z-index: $layer-content
+  #overlay
+    display: none
+    opacity: 0.0
+    position: fixed
+    top: 0px
+    left: 0px
+    width: 100%
+    height: 100%
+  #overlay-close
+    font-size: $size-big
+    border: 1px solid
+    width: 100%
+    height: 25px
+    text-align: center
+  #overlay-content
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: $layer-overlay
+  .thought-box-overlay-background
+    position: relative
+    width: 100%
+    height: 100%
+  .thought-box-overlay
+    height: 100%
+    width: auto
+    overflow-y: auto
+    overflow-x: hidden
+  .thought-overlay
+    padding-left: 15px
+    padding-right: 15px
+  .thought-box
+    width: 440px
+    height: 262px
+    float: left
+    position: relative
+    border-radius: 5px
+    margin-top: 10px
+    margin-right: 10px
+  .thought
+    overflow: hidden
+    border: none
+    margin-top: -10px
+    font-size: $size-medium
+    word-wrap: break-word
+    padding: 5px 5px 23px 5px
+    height: 220px
+  .thought-bottom-section-standard
+    border-bottom-left-radius: 5px
+    border-bottom-right-radius: 5px
+    height: 24px
+    bottom: 0px
+  .thought-top-section-overlay
+    width: 100%
+    height: 37px
+  .thought-controls
+    position: absolute
+    bottom: 3px
+    right: 5px
+  .thought-controls-overlay
+    position: absolute
+    top: 5px
+    right: 25px
+  .thought-votes-overlay
+    position: relative
+    top: 5px
+    left: 15px
+  .thought-votes
+    position: absolute
+    bottom: 3px
+    left: 5px
+  .thought-histories-box
+    position: relative
+    z-index: $layer-menu
+    margin-top: 5px
+    border-radius: 5px
+    padding: 5px
+  .thought-history-entry
+    position: relative
+    border-radius: 5px
+    margin-bottom: 5px
+  .thought-history-text
+    @extend .thought
+    margin-top: 0px
+  .thought-history-controls
+    @extend .thought-controls
+  .thought-history-bottom-section
+    border-bottom-left-radius: 5px
+    border-bottom-right-radius: 5px
+    height: 24px
+    bottom: 0px
+    
+  #thought-wall-form
+    width: 100%
+    position: relative
+  #update_thought_wall_spinner
+    display: none
+    position: absolute
+    top: 0px
+    right: 20px
+  #thought-form
+    @extend .thought-box
+    height: 262px
+  .new-thought-box
+    opacity: 0.0
+    width: 0px
+  #thought-new-remaining-characters
+    float: left
+
+  .positive
+  .neutral
+  .negative
+  
+  input
+    border: none
+  #thought-form textarea
+    @extend input
+    width: 435px
+    height: 225px
+    overflow: auto
+    resize: none
+  #thought-edit textarea
+    @extend input
+    font-family: $font-dark
+    width: 435px
+    height: 225px
+  #thought-edit-overlay
+    height: 100%
+  #thought-edit-overlay form
+    height: 100%
+  #thought-edit-overlay textarea
+    @extend input
+    font-family: $font-dark
+    font-size: $size-medium
+    width: 95%
+    height: 85%
+  .thought-add-button
+    float: right
+  .title-entry
+    font-size: $size-big
+    width: 95%
