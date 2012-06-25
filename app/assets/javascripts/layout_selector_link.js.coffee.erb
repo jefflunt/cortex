@@ -7,8 +7,18 @@ $ ->
       layoutSelectorDiv.show()
       layoutSelectorDiv.animate({opacity: 1.0}, 100)
 
+  getBodyLayout = ->
+    for classValue in bodyElement.attr('class').split(' ')
+      return classValue if classValue.indexOf('layout') is 0
+
+    return ''
+
   $(document).ready ->
-    
+    $('#layout-current-preview')[0].src = '/assets/layouts/' + getBodyLayout() + '-preview.png'
       
-    $('.layout-selector').click () ->
-  
+    $('.layout-selector').click (event) ->
+      currentLayout = getBodyLayout()
+      selectedLayout = $(event.target).parent().attr('id')
+      bodyElement.removeClass(currentLayout)
+      bodyElement.addClass(selectedLayout)
+      $('#layout-current-preview')[0].src = '/assets/layouts/' + selectedLayout + '-preview.png'
