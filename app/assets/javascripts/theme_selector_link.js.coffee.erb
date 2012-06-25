@@ -7,13 +7,23 @@ $ ->
       themeSelectorDiv.show()
       themeSelectorDiv.animate({opacity: 1.0}, 100)
 
+  getBodyTheme = ->
+    for classValue in bodyElement.attr('class').split(' ')
+      return classValue if classValue.indexOf('theme') is 0
+
+    return ''
+
   $(document).ready ->
     if supportsHtml5Storage()
       $('#theme-current-preview')[0].src = '/assets/themes/' + localStorage['preferredTheme'] + '-preview.png'
       
     $('.theme-selector').click () ->
       if supportsHtml5Storage()
-        localStorage['preferredTheme'] = $(this)[0].id
-        $('body')[0].className = $('body')[0].className.replace(/theme-.+/g, '')
-        $('body').addClass(localStorage['preferredTheme'])
+        currentTheme = getBodyTheme()
+        selectedTheme = $(event.target).parent().attr('id')
+        
+        bodyElement.removeClass(currentTheme)
+        bodyElement.addClass(selectedTheme)
+        
+        localStorage['preferredTheme'] = selectedTheme
         $('#theme-current-preview')[0].src = '/assets/themes/' + localStorage['preferredTheme'] + '-preview.png'
