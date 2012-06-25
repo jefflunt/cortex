@@ -29,8 +29,12 @@ $ ->
     if shareLinkDiv.css('opacity') is "1" and event.target.id != 'share-link-text'
       toggleVisibilityOfShareLinkDiv()
   
+  hideLayoutSelectorIfNecessary = (event) ->
+    if layoutSelectorDiv.css('opacity') is "1" and event.target.id != 'layout-selector-control'
+      toggleVisibilityOfLayoutSelectorDiv()
+  
   hideThemeSelectorIfNecessary = (event) ->
-    if themeSelectorDiv.css('opacity') is "1" and event.target.id != 'share-link-text'
+    if themeSelectorDiv.css('opacity') is "1" and event.target.id != 'theme-selector-control'
       toggleVisibilityOfThemeSelectorDiv()
       
   hideStarDivIfNecessary = (event) ->
@@ -46,6 +50,7 @@ $ ->
     hideStarDivIfNecessary(event)
     hideRecentListIfNecessary(event)
     hideShareLinkIfNecessary(event)
+    hideLayoutSelectorIfNecessary(event)
     hideThemeSelectorIfNecessary(event)
     hideThoughtHistoriesIfNecessary(event)
   

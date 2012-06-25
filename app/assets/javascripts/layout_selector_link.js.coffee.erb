@@ -1,0 +1,14 @@
+$ ->
+  window.toggleVisibilityOfLayoutSelectorDiv = ->
+    if (layoutSelectorDiv.css('opacity') is "1")
+      layoutSelectorDiv.animate({opacity: 0.0}, 100, ->
+        layoutSelectorDiv.hide())
+    else
+      layoutSelectorDiv.show()
+      layoutSelectorDiv.animate({opacity: 1.0}, 100)
+
+  $(document).ready ->
+    
+      
+    $('.layout-selector').click () ->
+  

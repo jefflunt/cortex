@@ -6,6 +6,8 @@ $ ->
     updateRecentThoughtWallsDiv()
   shareLinkControl.click (event) ->
     toggleVisibilityOfShareLinkDiv()
+  layoutSelectorLink.click (event) ->
+    toggleVisibilityOfLayoutSelectorDiv(event)
   themeSelectorLink.click (event) ->
     toggleVisibilityOfThemeSelectorDiv(event)
   focusOnNewThoughtText()

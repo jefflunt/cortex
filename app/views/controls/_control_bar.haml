@@ -4,6 +4,8 @@
     =link_to "recent", "javascript:;", id: "recent-thought-walls-link", class: "control-middle"
     =link_to "new", "/", class: "control-right"
   #controls-right
+    %img#layout-current-preview{src: ''}
+    =link_to "\u25be", "javascript:;", class: "control-right", id: "layout-selector-control"
     %img#theme-current-preview{src: ''}
     =link_to "\u25be", "javascript:;", class: "control-right", id: "theme-selector-control"
     =link_to ".csv", export_thought_wall_path(@thought_wall.code, format: "csv"), class: "control-left"
@@ -39,6 +41,8 @@
           
 #recent-thought-walls
   %ul
+#layout-selector
+  =render partial: "controls/layout_selector"
 #theme-selector
   =render partial: "controls/theme_selector"
 #share-link
