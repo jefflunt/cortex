@@ -44,14 +44,7 @@ $ ->
       clientOrder.push @id.split("-")[2]
       
     return clientOrder
-      
-  window.correctFirstOutOfOrderThought = (clientOrder, serverOrder) ->
-    index = 0
-    index++  while index < clientOrder.length and clientOrder[index] is serverOrder[index]
-    
-    if index < clientOrder.length
-      shiftThought($("#thought-box-" + serverOrder[index]).index(), index)
-  
+        
   window.correctFurthestOutOfOrderThought = (clientOrder, serverOrder) ->
     distances = []
     

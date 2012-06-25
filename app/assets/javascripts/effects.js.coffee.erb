@@ -1,4 +1,21 @@
 $ ->
+  window.slideThoughtIn = (element, callback) ->
+    slideWidth = $('#thought-form').width()
+    element.animate({
+      width: slideWidth}, 
+      500, 
+      ->
+        $(this).animate({opacity: 1.0}, 175, callback)
+    )
+    
+  window.slideThoughtOut = (element, callback) ->
+    element.animate({
+      opacity: 0.0},
+      175,
+      ->
+        $(this).animate({width: 0}, 500, callback)
+    )
+
   window.shiftThought = (fromIndex, toIndex) ->    
     numElements = $('.thought-box').length
     fromIndex = normalizeIndex(fromIndex, numElements) 
@@ -32,21 +49,3 @@ $ ->
     return 0 if index <= 0
     return numElements if index >= numElements
     return index
-  
-  window.slideThoughtIn = (element, callback) ->
-    slideWidth = $('#thought-form').width()
-    console.log slideWidth
-    element.animate({
-      width: slideWidth}, 
-      500, 
-      ->
-        $(this).animate({opacity: 1.0}, 175, callback)
-    )
-    
-  slideThoughtOut = (element, callback) ->
-    element.animate({
-      opacity: 0.0},
-      175,
-      ->
-        $(this).animate({width: 0}, 500, callback)
-    )
