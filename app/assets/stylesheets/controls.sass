@@ -31,11 +31,11 @@
       color: $color-light-medium-grey
   #controls-left
     position: absolute
-    top: 13px
+    top: 9px
     left: 10px
   #controls-right
     position: absolute
-    top: 13px
+    top: 5px
     right: 10px
   .control-middle
     padding: 5px 10px 5px 10px
@@ -94,8 +94,6 @@
   display: none
   right: 162px
 .layout-preview
-  border: 1px solid #1b1b1b
-  border-radius: 5px
   width: 20px
   height: 20px
   overflow: hidden
@@ -104,9 +102,11 @@
   float: left
 #layout-current-preview
   @extend .layout-preview
+  border: 1px solid #1b1b1b
+  border-radius: 5px
+  margin: 5px
   width: 15px
   height: 15px
-  float: none
 
 #theme-selector
   @extend .control-middle
@@ -130,9 +130,9 @@
   float: left
 #theme-current-preview
   @extend .theme-preview
+  margin: 5px
   width: 15px
   height: 15px
-  float: none
 
 #share-link
   @extend .control-middle
