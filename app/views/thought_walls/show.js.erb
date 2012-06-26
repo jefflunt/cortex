@@ -12,7 +12,7 @@ if ($('#safe-to-alter-layout').html() === "true") {
     thoughtBoxIsNewToClient = ($(thought_box_id_selector).length == 0);
     if (thoughtBoxIsNewToClient) {
       thoughtListDiv.prepend("<%= escape_javascript(render(:partial => 'thoughts/thought_box', :locals => {:thought => thought, :is_new_thought => true})) %>");
-      $(thought_box_id_selector).animate({width: 215}, 500, function() { $(this).animate({opacity: 1.0}, 175, function() { $(this).removeClass('new-thought-box'); }) });
+      $(thought_box_id_selector).animate({width: $('#thought-form').width()}, 500, function() { $(this).animate({opacity: 1.0}, 175, function() { $(this).removeClass('new-thought-box'); }) });
     } else {
       $(thought_box_id_selector).replaceWith("<%= escape_javascript(render(:partial => 'thoughts/thought_box', :locals => {:thought => thought})) %>");
     }
