@@ -5,4 +5,6 @@ cortex
 
 Sometimes you **just** want to type up some really quick ideas.
 
-No logins required. No "trial" period. Just go to the page and start typing. Why does it have to be more complex than that?
+No logins required. No "trial" period. No limits on the number of pages you can create.
+
+Just go to the page and start typing. Why does it have to be more complex than that?
