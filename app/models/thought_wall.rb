@@ -8,6 +8,10 @@ class ThoughtWall < ActiveRecord::Base
   
   attr_accessible :title, :custom_layout
   
+  def custom_layout
+    read_attribute(:custom_layout) || "layout-standard"
+  end
+  
   def highest_manual_order_value
     last_manually_sorted_thought = thoughts.select("manual_order").order("manual_order DESC").limit(1).first
   
