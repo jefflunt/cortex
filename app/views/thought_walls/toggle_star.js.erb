@@ -1,0 +1,10 @@
+<% if @show_as_starred == true %>
+  $('#star-thought-wall-link').html("\u2605")
+<% else %>
+  $('#star-thought-wall-link').html("\u2606")
+  $('#star-menu-item-<%= @thought_wall.code %>').remove()
+<% end %>
+
+<% unless current_user %>
+  showStarDiv()
+<% end %>

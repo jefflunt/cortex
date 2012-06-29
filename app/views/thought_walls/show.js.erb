@@ -6,6 +6,8 @@ if ($('#safe-to-alter-layout').html() === "true") {
     thoughtWallTitleInput.val('<%= @thought_wall.title %>');
   <% end %>
 
+  updateBodyLayout('<%= @thought_wall.custom_layout %>')
+
   <% @thoughts.each do |thought| %>
     thought_box_id_selector = "#thought-box-<%= thought.id.to_s %>"
     

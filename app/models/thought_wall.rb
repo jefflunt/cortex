@@ -6,6 +6,8 @@ class ThoughtWall < ActiveRecord::Base
   validates :code,  :presence => true
   validates :title, :presence => true
   
+  attr_accessible :title, :custom_layout
+  
   def highest_manual_order_value
     last_manually_sorted_thought = thoughts.select("manual_order").order("manual_order DESC").limit(1).first
   

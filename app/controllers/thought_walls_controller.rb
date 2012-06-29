@@ -48,23 +48,24 @@ class ThoughtWallsController < ApplicationController
   end
   
   def update
-    @thought_wall = ThoughtWall.find_by_code(params[:thought_wall][:code])
-    @thought_wall.update_attribute(:title, params[:thought_wall][:title])
+    @thought_wall = ThoughtWall.find_by_code(params[:id].to_s) || ThoughtWall.find(params[:id])
+    @thought_wall.update_attributes(params[:thought_wall])
+  end
+  
+  # PUT
+  def toggle_star
+    @thought_wall = ThoughtWall.find_by_code(params[:id].to_s)
     
     if current_user
-      if params[:thought_wall][:star] == "true"
-        @thought_wall.users << current_user unless @thought_wall.users.include?(current_user)
-        @star_display = true
-      else
+      if @thought_wall.users.include?(current_user)
         @thought_wall.users.delete(current_user)
-        @star_display = false
+        @show_as_starred = false
+      else
+        @thought_wall.users << current_user
+        @show_as_starred = true
       end
-    end
-    
-    if params[:thought_wall][:star_clicked] == "true"
-      @star_was_clicked = true
     else
-      @star_was_clicked = false
+      @show_as_starred = false
     end
   end
   

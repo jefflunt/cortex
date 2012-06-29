@@ -12,8 +12,6 @@ $ ->
       starDiv.show()
       starDiv.animate({opacity: 1.0}, 100)
       
-  window.updateStarMenuTitle = (code, title) ->
-    $('#star-menu-item-'+code).text('\u2605 '+title)
   window.updateRecentCodeTitle = (code, title) ->
     localStorage[code+".title"] = title
   

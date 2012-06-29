@@ -1,0 +1,4 @@
+-if current_user && current_user.thought_walls.include?(thought_wall)
+  %span.star-toggle=link_to "\u2605", "javascript:;", id: "star-thought-wall-link"
+-else
+  %span.star-toggle=link_to "\u2606", "javascript:;", id: "star-thought-wall-link"

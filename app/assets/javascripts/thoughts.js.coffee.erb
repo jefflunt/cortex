@@ -19,16 +19,14 @@ $ ->
     $('#thought-new-remaining-characters').html('remaining: ' + (maxThoughtLength - $('#thought_text').val().length))
   
   starThoughtWallLink.click ->
-    $('#thought_wall_star_clicked').val('true')
-    thoughtWallStarFormElement = $('#thought_wall_star')
-    if (thoughtWallStarFormElement.val() == "true")
-      thoughtWallStarFormElement.val("false")
-    else
-      thoughtWallStarFormElement.val("true")
+    thoughtWallCode = document.URL.split('/')[document.URL.split('/').length - 1]
+    alphabeticallyAddNewStarItem(thoughtWallCode, document.title)
+    $.ajax({
+      type: "POST",
+      url: "/thought_walls/" + thoughtWallCode + "/toggle_star.js"
+      data: { _method:'PUT'}
+    })
       
-    $('.edit_thought_wall').submit()
-    $('#thought_wall_star_clicked').val('false')
-  
   thoughtWallTitleInput.keyup ->
     $("#update_thought_wall_spinner").show()
     $("#collection-name").html($(this).val())

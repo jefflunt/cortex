@@ -1,16 +1,5 @@
-=form_for @thought_wall, :remote => true do |f|
-  -if current_user && current_user.thought_walls.include?(@thought_wall)
-    %span.star-toggle=link_to "\u2605", "javascript:;", id: "star-thought-wall-link"
-  -elsif current_user
-    %span.star-toggle=link_to "\u2606", "javascript:;", id: "star-thought-wall-link"
-  -else
-    %span.star-toggle=link_to "\u2606", "javascript:;", id: "star-thought-wall-link"
+=form_for thought_wall, :remote => true do |f|
+  =render :partial => "star", :locals => {:thought_wall => thought_wall}
   =f.text_field :title, :class => "title-entry"
-  =f.hidden_field :code
-  =f.hidden_field :star_clicked, value: false
-  -if current_user
-    =f.hidden_field :star, value: current_user.thought_walls.include?(@thought_wall) ? true : false
-  -else
-    =f.hidden_field :star, value: false
 #update_thought_wall_spinner
   =image_tag "spinner.gif"  
