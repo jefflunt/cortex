@@ -37,7 +37,9 @@ $ ->
           else
             movingElement.insertBefore($('#'+idTo))
           
-          slideThoughtIn(movingElement, -> )
+          slideThoughtIn(movingElement, ->
+            movingElement.removeAttr('style')
+          )
       )
   
   getNearestIdToIndex = (index, numElements) ->
