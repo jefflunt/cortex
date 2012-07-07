@@ -27,6 +27,10 @@ class ThoughtWallsController < ApplicationController
       end
     else
       @thought_wall = ThoughtWall.find_by_code(params[:id], :include => :thoughts)
+      if @thought_wall.nil?
+        return redirect_to :root
+      end
+      
       @next_refresh = get_next_refresh(0, true)
     end
     
