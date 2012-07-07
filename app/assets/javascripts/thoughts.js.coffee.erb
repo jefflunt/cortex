@@ -15,6 +15,19 @@ $ ->
   $("body").delegate ".thought-history-link", "click", (event) ->
     toggleThoughtHistoryDisplay(this.getAttribute("id").split("-")[2])
   
+  $("body").delegate ".show-full-screen-link", "click", (event) ->
+    $.ajax({
+      type: "GET",
+      url: '/thoughts/' + this.getAttribute("id").split("-")[3] + ".js"
+    })
+    
+  $("body").delegate ".edit-thought-link", "click", (event) ->
+    $.ajax({
+      type: "GET",
+      url: '/thoughts/' + this.getAttribute("id").split("-")[2] + "/edit.js"
+    })
+
+  
   $("body").delegate "#thought_text", "keyup", (event) ->
     $('#thought-new-remaining-characters').html('remaining: ' + (maxThoughtLength - $('#thought_text').val().length))
   

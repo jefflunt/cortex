@@ -1,4 +1,4 @@
 .thought-controls
   =link_to("\u25f7", "javascript:;", {id: "thought-history-#{thought.id}", class: "thought-history-link", title: "History"})
-  =link_to("\u270e", edit_thought_path(thought), {remote: true, title: "Edit this thought"})
-  =link_to("\u25ff", thought, {remote: true, title: "Display full screen"})
+  =link_to("\u270e", "javascript:;", {id: "edit-thought-#{thought.id}", class: "edit-thought-link", remote: true, title: "Edit this thought"})
+  =link_to("\u25ff", "javascript:;", {id: "show-full-screen-#{thought.id}", class: "show-full-screen-link", remote: true, title: "Display full screen"})
