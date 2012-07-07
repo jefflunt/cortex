@@ -3,6 +3,7 @@ class ThoughtsController < ApplicationController
   
   def show
     @thought = Thought.find(params[:id])
+    @thought_wall = @thought.thought_wall
   end
   
   def create
