@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.10'
 gem 'json'
 gem 'jquery-rails'
 gem 'pg'
 gem 'haml'
-gem 'coffee-rails', '~> 3.2.1'
+gem 'coffee-rails'
+gem 'libv8'
 gem 'therubyracer'
 gem 'rails_autolink'
 
