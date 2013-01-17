@@ -23,8 +23,8 @@ themes/theme-dark-preview.png: themes/theme-dark-preview-ee5a1b625478bad0ed29b00
 themes/theme-dark-preview/index.png: themes/theme-dark-preview-ee5a1b625478bad0ed29b00b3f9bb06b.png
 themes/theme-light-preview.png: themes/theme-light-preview-6696debada85e0b77ef240d6e7828bb5.png
 themes/theme-light-preview/index.png: themes/theme-light-preview-6696debada85e0b77ef240d6e7828bb5.png
-application.js: application-1efc6e70f051d8851895d32958c5e132.js
-application/index.js: application-1efc6e70f051d8851895d32958c5e132.js
+application.js: application-28beb94800b7f798f5d630eeced21147.js
+application/index.js: application-28beb94800b7f798f5d630eeced21147.js
 Andada.ttf: Andada-e0a93246995ddeb34e15867111abf40b.ttf
 Andada/index.ttf: Andada-e0a93246995ddeb34e15867111abf40b.ttf
 PTM55FT.ttf: PTM55FT-cabe0be1917718dbd6ede18283a7990b.ttf
