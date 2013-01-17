@@ -1,33 +1,33 @@
 @import "variables"
 
-body.theme-canvas
-  color: $canvas-theme-dark-brown
-  font-family: $font-canvas-copy
-  background-color: $canvas-theme-pale-grey
-  background-image: url('themes/canvas-background.jpg')
+body.theme-light
+  color: $light-theme-dark-brown
+  font-family: $font-light-copy
+  background-color: $light-theme-pale-grey
+  background-image: url('themes/light-background.jpg')
   background-repeat: repeat
 
   a
-    color: $canvas-theme-color-links
+    color: $light-theme-color-links
     &:hover
-      color: $canvas-theme-color-links-hover
+      color: $light-theme-color-links-hover
 
   #content
 
   #overlay
-    background-color: $canvas-theme-light-brown
+    background-color: $light-theme-light-brown
   #overlay-close
-    background-color: $canvas-theme-light-brown
-    border-color: $canvas-theme-dark-brown
+    background-color: $light-theme-light-brown
+    border-color: $light-theme-dark-brown
   #overlay-content
 
   .thought-box-overlay-background
-    background-color: $canvas-theme-light-brown
+    background-color: $light-theme-light-brown
   .thought-box-overlay
   .thought-overlay
   .thought-box
     box-shadow: #676767 4px 4px 15px 2px
-    border: 1px solid $canvas-theme-dark-brown
+    border: 1px solid $light-theme-dark-brown
   .thought
   .thought-bottom-section-standard
     border: 1px solid #1b1b1b
@@ -36,16 +36,16 @@ body.theme-canvas
     background: rgba(207, 209, 209, 0.85)
     box-shadow: #1b1b1b -1px -1px 3px 0px inset
   .thought-top-section-overlay
-    background-color: $canvas-theme-pale-grey
+    background-color: $light-theme-pale-grey
   .thought-controls
   .thought-controls-overlay
   .thought-votes-overlay
   .thought-votes
   .thought-histories-box
     border: 1px solid #1b1b1b
-    background-color: $canvas-theme-pale-grey
+    background-color: $light-theme-pale-grey
   .thought-history-entry
-    border: 1px solid $canvas-theme-dark-brown
+    border: 1px solid $light-theme-dark-brown
   .thought-history-text
     @extend .thought
     margin-top: 0px
@@ -58,7 +58,7 @@ body.theme-canvas
   #update_thought_wall_spinner
   #thought-form
     @extend .thought-box
-    font-family: $font-canvas-copy
+    font-family: $font-light-copy
   .new-thought-box
   #thought-new-remaining-characters
 
@@ -71,26 +71,26 @@ body.theme-canvas
   
   input
     border: 1px solid
-    font-family: $font-canvas-headline
-    color: $canvas-theme-dark-brown
-    background-color: $canvas-theme-pale-grey
+    font-family: $font-light-headline
+    color: $light-theme-dark-brown
+    background-color: $light-theme-pale-grey
     box-shadow: #676767 4px 4px 15px 2px
   #thought-form textarea
     @extend input
-    background-color: $canvas-theme-pale-grey
-    font-family: $font-canvas-copy
+    background-color: $light-theme-pale-grey
+    font-family: $font-light-copy
   #thought-edit textarea
     @extend input
-    background-color: $canvas-theme-pale-grey
-    font-family: $font-canvas-copy
+    background-color: $light-theme-pale-grey
+    font-family: $font-light-copy
   #thought-edit-overlay
     height: 100%
   #thought-edit-overlay form
     height: 100%
   #thought-edit-overlay textarea
     @extend input
-    background-color: $canvas-theme-pale-grey
-    font-family: $font-canvas-copy
+    background-color: $light-theme-pale-grey
+    font-family: $font-light-copy
     font-size: $size-medium
     width: 95%
     height: 85%
