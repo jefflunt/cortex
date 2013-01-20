@@ -23,8 +23,8 @@ themes/theme-dark-preview.png: themes/theme-dark-preview-ee5a1b625478bad0ed29b00
 themes/theme-dark-preview/index.png: themes/theme-dark-preview-ee5a1b625478bad0ed29b00b3f9bb06b.png
 themes/theme-light-preview.png: themes/theme-light-preview-6696debada85e0b77ef240d6e7828bb5.png
 themes/theme-light-preview/index.png: themes/theme-light-preview-6696debada85e0b77ef240d6e7828bb5.png
-application.js: application-28beb94800b7f798f5d630eeced21147.js
-application/index.js: application-28beb94800b7f798f5d630eeced21147.js
+application.js: application-0956733bc09f32c07a372588cb68387e.js
+application/index.js: application-0956733bc09f32c07a372588cb68387e.js
 Andada.ttf: Andada-e0a93246995ddeb34e15867111abf40b.ttf
 Andada/index.ttf: Andada-e0a93246995ddeb34e15867111abf40b.ttf
 PTM55FT.ttf: PTM55FT-cabe0be1917718dbd6ede18283a7990b.ttf
@@ -33,3 +33,5 @@ Trocchi.ttf: Trocchi-f06c256ac049370d90a6b4e444fc5ead.ttf
 Trocchi/index.ttf: Trocchi-f06c256ac049370d90a6b4e444fc5ead.ttf
 application.css: application-a2fef6bd9ecf2e022cd2856ea900ff12.css
 application/index.css: application-a2fef6bd9ecf2e022cd2856ea900ff12.css
+jquery.min.map: jquery.min-959a5819c76e1508f5a8655c289c0de8.map
+jquery/index.min.map: jquery.min-959a5819c76e1508f5a8655c289c0de8.map
