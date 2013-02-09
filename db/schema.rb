@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20120623182409) do
     t.integer  "up_votes",                :default => 0
     t.integer  "down_votes",              :default => 0
     t.integer  "manual_order"
-    t.datetime "manual_order_updated_at", :default => '2012-06-08 01:31:34'
+    t.datetime "manual_order_updated_at", :default => '2013-01-25 20:20:27'
   end
 
   create_table "users", :force => true do |t|
