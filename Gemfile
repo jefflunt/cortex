@@ -19,7 +19,7 @@ gem "omniauth-facebook", "~> 1.4.0"
 gem "omniauth-twitter", "~> 0.0.12"
 gem "omniauth-github", "~> 1.0.1"
 
-
+# Assets
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier', '>= 1.0.3'
